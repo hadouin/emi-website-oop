@@ -4,23 +4,26 @@ services:
   web:
     build:
       context: .
-      dockerfile: docker/web/dockerfile
+      dockerfile: dockerfile
     ports:
       - "80:80"
     volumes:
       - ./src:/var/www/html/
-    depends_on:
-      - db
 
   db:
-    image: mysql
+    image: mariadb
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: ooplogin
+      MYSQL_USER: root
+      MYSQL_PASSWORD: example
+      MYSQL_ROOT_PASSWORD: example
     ports:
       - "3306:3306"
-    command: --default-authentication-plugin=mysql_native_password
-
+    command: --init-file /data/application/init.sql
+    volumes:
+      - ./db/init.sql:/data/application/init.sql
+      - mysql-data:/var/lib/mysql
 
   phpmyadmin:
     image: phpmyadmin

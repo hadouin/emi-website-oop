@@ -1,2 +1,0 @@
-FROM mariadb:latest
-ADD custom.cnf /etc/mysql/conf.d/
