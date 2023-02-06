@@ -5,10 +5,10 @@ class Dbh
     protected function connect() : PDO
     {
         try {
-            $username = "admin";
-            $password = "pass";
+            $username = "root";
+            $password = "example";
 
-            $dbh = new PDO('mysql:host=127.0.0.1;dbname=ooplogin;charset=utf8', $username, $password);
+            $dbh = new PDO('mysql:host=localhost', $username, $password);
 
             $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
