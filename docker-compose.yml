@@ -5,19 +5,25 @@ services:
     build:
       context: .
       dockerfile: dockerfile
+    depends_on:
+      - db
     ports:
       - "80:80"
+    env_file:
+      - .env
     volumes:
       - ./src:/var/www/html/
+    stdin_open: true
+    tty: true
 
   db:
     image: mariadb
     restart: always
     environment:
-      MYSQL_DATABASE: ooplogin
-      MYSQL_USER: root
-      MYSQL_PASSWORD: example
-      MYSQL_ROOT_PASSWORD: example
+      MARIADB_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${MYSQL_DATABASE}
+      MARIADB_USER: ${MYSQL_USER}
+      MARIADB_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - "3306:3306"
     command: --init-file /data/application/init.sql
