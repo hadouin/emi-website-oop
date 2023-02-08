@@ -1,6 +1,6 @@
-<?php
-include_once 'header.php';
-?>
+<?php $title = "Emi - Welcome" ?>
+
+<?php ob_start(); ?>
 <main class="container">
     <section id="welcome">
         <h2>Welcome to the website</h2>
@@ -12,7 +12,6 @@ include_once 'header.php';
         ?>
     </section>
 </main>
-<?php
-include_once 'footer.php';
-?>
+<?php $content = ob_get_clean(); ?>
 
+<?php require ('templates/layout.php') ?>

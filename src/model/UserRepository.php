@@ -2,13 +2,7 @@
 namespace model;
 
 use DatabaseConnection;
-
-class User
-{
-    public string $id;
-    public string $username;
-    public string $email;
-}
+use model\Entities\User;
 
 class UserRepository {
 

@@ -1,12 +1,16 @@
 <?php
-    session_start();
+/**
+ * @var $title
+ * @var $content
+ */
+session_start();
 ?>
 
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>Emi Website</title>
+    <title><?= $title ?? 'Emi Website' ?></title>
     <link rel="stylesheet" href="css/pico.min.css">
     <link rel="stylesheet" href="css/custom.css">
 </head>
@@ -40,4 +44,16 @@
 </nav><!-- ./ Nav -->
 
 <!-- Minimal theme switcher -->
-<script src="jsinimal-theme-switcher.js"></script>
+<script src="../js/minimal-theme-switcher.js"></script>
+
+<main>
+    <?= $content ?? '<p>No content</p>' ?>
+</main>
+
+<!-- Footer -->
+<footer class="container-fluid">
+    <small>Built with <a href="https://picocss.com" class="secondary">Pico</a> • <a href="https://github.com/picocss/examples/tree/master/sign-in/" class="secondary">Source code</a></small>
+</footer><!-- ./ Footer -->
+
+</body>
+</html>
