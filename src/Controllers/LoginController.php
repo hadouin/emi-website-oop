@@ -16,7 +16,7 @@ class LoginController
     {
 
         if ($this->emptyInput()) {
-            header("location: ../index.php?error=emptyInput");
+            header("location: ../welcome.php?error=emptyInput");
             exit();
         }
 

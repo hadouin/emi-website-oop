@@ -46,9 +46,7 @@ session_start();
 <!-- Minimal theme switcher -->
 <script src="../js/minimal-theme-switcher.js"></script>
 
-<main>
-    <?= $content ?? '<p>No content</p>' ?>
-</main>
+<?= $content ?? '<p>No content</p>' ?>
 
 <!-- Footer -->
 <footer class="container-fluid">

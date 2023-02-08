@@ -14,7 +14,7 @@ class UserRepository {
 
         if (!$stmt->execute(array($uid))) {
             $stmt = null;
-            header("location: ../index.php?error=stmtFailed");
+            header("location: ../welcome.php?error=stmtFailed");
             exit();
         }
 
@@ -65,7 +65,7 @@ class UserRepository {
 
         if (!$stmt->execute(array($uid, $email, $hashedPassword))) {
             $stmt = null;
-            header("location: ../index.php?error=stmt-failed");
+            header("location: ../welcome.php?error=stmt-failed");
             exit();
         }
 
@@ -78,7 +78,7 @@ class UserRepository {
 
         if (!$stmt->execute(array($uid, $email))) {
             $stmt = null;
-            header("location: ../index.php?error=stmt-failed");
+            header("location: ../welcome.php?error=stmt-failed");
             exit();
         }
 

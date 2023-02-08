@@ -1,7 +1,6 @@
-<?php
-include_once 'header.php';
-?>
+<?php $title = "Emi - Login" ?>
 
+<?php ob_start(); ?>
 <!-- Main -->
 <main class="container">
     <article class="grid">
@@ -10,7 +9,7 @@ include_once 'header.php';
                 <h1>Log in</h1>
                 <h2>A minimalist layout for Login pages</h2>
             </hgroup>
-            <form action="includes/login.inc.php" method="post">
+            <form action="../includes/login.inc.php" method="post">
                 <input type="text" name="username" placeholder="Login" aria-label="Login" autocomplete="nickname" required>
                 <input type="password" name="password" placeholder="Password" aria-label="Password" autocomplete="current-password" required>
                 <fieldset>
@@ -39,6 +38,6 @@ include_once 'header.php';
     </article>
 </main><!-- ./ Main -->
 
-<?php
-include_once 'footer.php';
-?>
+<?php $content = ob_get_clean(); ?>
+
+<?php require('+layout.php') ?>

@@ -1,6 +1,6 @@
-<?php
-include_once 'header.php';
-?>
+<?php $title = "Emi - Signup" ?>
+
+<?php ob_start(); ?>
     <!-- Main -->
     <main class="container">
         <article class="grid">
@@ -9,7 +9,7 @@ include_once 'header.php';
                     <h1>Sign up</h1>
                     <h2>here you sign up</h2>
                 </hgroup>
-                <form action="includes/signup.inc.php" method="post">
+                <form action="../includes/signup.inc.php" method="post">
                     <input type="text" name="uid" placeholder="username" aria-label="username" required>
                     <input type="email" name="email" placeholder="email@example.com" aria-label="email" required>
                     <input type="password" name="password" placeholder="Password" aria-label="Password" required>
@@ -36,7 +36,6 @@ include_once 'header.php';
         </article>
     </main><!-- ./ Main -->
 
-<?php
-include_once 'footer.php';
-?>
+<?php $content = ob_get_clean(); ?>
 
+<?php require('+layout.php') ?>
