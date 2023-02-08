@@ -1,5 +1,7 @@
 <?php
 
+use Controllers\LoginController;
+
 if (isset($_POST["submit"])){
 
     // grab data
@@ -7,7 +9,7 @@ if (isset($_POST["submit"])){
     $password = $_POST["password"];
 
     // instantiate
-    include "../classes/Dbh.php";
+    include "../classes/DatabaseConnection.php";
     include "../classes/Login.php";
     include "../classes/LoginController.php";
     $signup = new LoginController($uid, $password);

@@ -1,5 +1,7 @@
 <?php
 
+use Controllers\SignupController;
+
 if (isset($_POST["submit"])){
 
     // grab data
@@ -9,7 +11,7 @@ if (isset($_POST["submit"])){
     $passwordConfirm = $_POST["password-confirm"];
 
     // instantiate
-    include "../classes/Dbh.php";
+    include "../classes/DatabaseConnection.php";
     include "../classes/Signup.php";
     include "../classes/SignupController.php";
     $signup = new SignupController($uid, $email, $password, $passwordConfirm);
