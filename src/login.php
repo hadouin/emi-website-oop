@@ -11,7 +11,7 @@ include_once 'header.php';
                 <h2>A minimalist layout for Login pages</h2>
             </hgroup>
             <form action="includes/login.inc.php" method="post">
-                <input type="email" name="email" placeholder="Login" aria-label="Login" autocomplete="nickname" required>
+                <input type="text" name="username" placeholder="Login" aria-label="Login" autocomplete="nickname" required>
                 <input type="password" name="password" placeholder="Password" aria-label="Password" autocomplete="current-password" required>
                 <fieldset>
                     <label for="remember">

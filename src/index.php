@@ -6,8 +6,8 @@ include_once 'header.php';
         <h2>Welcome to the website</h2>
         <p>A simple login setup using php</p>
         <?php
-        if (isset($_SESSION["userFirstName"]) && isset($_SESSION["userLastName"])){
-            echo "<b>Logged in as " . $_SESSION["userFirstName"] . " " . $_SESSION["userLastName"] ."</b>";
+        if (isset($_SESSION["userId"]) && isset($_SESSION["userUid"])){
+            echo "<b>Logged in as " . $_SESSION["userUid"] . " of Id=" . $_SESSION["userId"] . "</b>";
         }
         ?>
     </section>

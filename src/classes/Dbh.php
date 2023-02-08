@@ -2,13 +2,16 @@
 
 class Dbh
 {
-    protected function connect() : PDO
+    public function connect() : PDO
     {
         try {
-            $username = "admin";
-            $password = "pass";
+            $servername = $_ENV['MYSQL_HOST'];
+            $username = $_ENV['MYSQL_USER'];
+            $password = $_ENV['MYSQL_PASSWORD'];
+            $dbname = $_ENV['MYSQL_DATABASE'];
+            $port = $_ENV['MYSQL_PORT'];
 
-            $dbh = new PDO('mysql:host=127.0.0.1;dbname=ooplogin;charset=utf8', $username, $password);
+            $dbh = new PDO("mysql:host=$servername;port=$port;dbname=$dbname",$username,$password);
 
             $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
