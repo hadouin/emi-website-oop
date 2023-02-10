@@ -29,11 +29,29 @@ if(empty(session_id())) session_start();
 </head>
 <body>
 <!-- Nav -->
-<nav class="container-fluid">
-    <ul>
-        <li><a href="/" class="contrast"><strong>Brand</strong></a></li>
+<nav class="container">
+    <ul style="flex: 1">
+        <li>
+            <a href="/" class="contrast">
+                <div class="emi-logo"></div>
+            </a>
+        </li>
     </ul>
-    <ul>
+    <ul class="nav-middle">
+        <li><a href='/'>Accueil</a></li>
+        <li><a href='/'>FAQ</a></li>
+        <li><a href='/'>Contact</a></li>
+        <?php
+        if (isset($_SESSION["userId"])){
+            echo "<li><a href='..' onclick='event.preventDefault()'>Profile</a></li>";
+            echo "<li><a href='includes/logout.inc.php' >Log out</a></li>";
+        } else {
+            echo "<li><a href='/signup'>Sign up</a></li>";
+            echo "<li><a href='/login'>Log in</a></li>";
+        }
+        ?>
+    </ul>
+    <ul style="flex: 1; justify-content: end">
         <li>
             <details role="list" dir="rtl">
                 <summary aria-haspopup="listbox" role="link" class="secondary">Theme</summary>
@@ -44,15 +62,9 @@ if(empty(session_id())) session_start();
                 </ul>
             </details>
         </li>
-        <?php
-        if (isset($_SESSION["userId"])){
-            echo "<li><a href='..' onclick='event.preventDefault()'>Profile</a></li>";
-            echo "<li><a href='includes/logout.inc.php' >Log out</a></li>";
-        } else {
-            echo "<li><a href='./signup'>Sign up</a></li>";
-            echo "<li><a href='./login'>Log in</a></li>";
-        }
-        ?>
+        <li>
+            <button class="outline">Button</button>
+        </li>
     </ul>
 </nav><!-- ./ Nav -->
 
@@ -62,7 +74,7 @@ if(empty(session_id())) session_start();
 <?= $content ?? '<p>No content</p>' ?>
 
 <!-- Footer -->
-<footer class="container-fluid">
+<footer class="container">
     <small>Built with <a href="https://picocss.com" class="secondary">Pico</a> • <a href="https://github.com/picocss/examples/tree/master/sign-in/" class="secondary">Source code</a></small>
 </footer><!-- ./ Footer -->
 

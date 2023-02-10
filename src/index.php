@@ -9,11 +9,12 @@ require_once 'Route.php';
 require_once 'RouterException.php';
 
 $router = new Router($_GET['url']);
-$router->get('/', 'Welcome#render');
+$router->get('/', 'Welcome#show');
 $router->get('/login', 'Login#get');
 $router->post('/login', 'Login#post');
+$router->get('/404', 'NotFound#show');
 try {
     $router->run();
 } catch (RouterException $e) {
-    header("location: /");
+    header("location: /404");
 }

@@ -2,10 +2,10 @@
 
 namespace App\Controllers;
 
-class WelcomeController
+class NotFoundController
 {
     public function show(): void
     {
-        require_once 'templates/welcome.php';
+        require_once 'templates/404.php';
     }
 }
