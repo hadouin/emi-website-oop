@@ -36,6 +36,9 @@ class Router
         return $route; // On retourne la route pour "enchainer" les méthodes
     }
 
+    /**
+     * @throws RouterException
+     */
     public function run(){
         if(!isset($this->routes[$_SERVER['REQUEST_METHOD']])){
             throw new RouterException('REQUEST_METHOD does not exist');

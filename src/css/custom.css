@@ -66,7 +66,7 @@ summary[role="link"].secondary:is([aria-current],:hover,:active,:focus) {
 article div:nth-of-type(2) {
     display: none;
     background-color: #374956;
-    background-image: url("../img/alessio-soggetti-8jeWeKdygfk-unsplash-1000x1200.jpg");
+    background-image: url("../assets/img/alessio-soggetti-8jeWeKdygfk-unsplash-1000x1200.jpg");
     background-position: center;
     background-size: cover;
 }
@@ -80,4 +80,27 @@ article div:nth-of-type(2) {
 /* Footer */
 body > footer {
     padding: 1rem 0;
+}
+
+.cog-svg {
+    position: absolute;
+    top: -0.5rem;
+    left: -75px;
+    width: 50px;
+    height: 50px;
+    background-image: url("../assets/img/cog-3d-simple-transparent.svg");
+}
+
+@keyframes cog {
+    50% {
+        transform: translateY(1rem)
+    }
+}
+
+.animate-cog {
+    animation: cog 6s ease-in-out infinite!important
+}
+
+#welcome {
+    position: relative;
 }

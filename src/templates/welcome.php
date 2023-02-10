@@ -5,6 +5,8 @@ session_start();
 ?>
 <main class="container">
     <section id="welcome">
+        <div class="cog-svg animate-cog">
+        </div>
         <h2>Welcome to the website</h2>
         <p>A simple login setup using php</p>
         <?php
