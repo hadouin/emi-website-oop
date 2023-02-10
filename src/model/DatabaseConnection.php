@@ -1,16 +1,19 @@
 <?php
 
+namespace App\model;
+
+use PDO;
+
 class DatabaseConnection
 {
 
     public ?PDO $database = null;
-    
-    public function getConnection() : PDO
+
+    public function getConnection(): PDO
     {
-        if (!$this->database === null){
+        if (!$this->database === null) {
             return $this->database;
-        }
-        else {
+        } else {
             try {
                 $servername = $_ENV['MYSQL_HOST'];
                 $username = $_ENV['MYSQL_USER'];
@@ -18,7 +21,7 @@ class DatabaseConnection
                 $dbname = $_ENV['MYSQL_DATABASE'];
                 $port = $_ENV['MYSQL_PORT'];
 
-                $database = new PDO("mysql:host=$servername;port=$port;dbname=$dbname",$username,$password);
+                $database = new PDO("mysql:host=$servername;port=$port;dbname=$dbname", $username, $password);
                 $database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                 $this->database = $database;

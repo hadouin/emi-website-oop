@@ -1,5 +1,7 @@
 <?php
 
+namespace App;
+
 class Router
 {
     private string $url; // Contiendra l'URL sur laquelle on souhaite se rendre
@@ -11,16 +13,16 @@ class Router
         $this->url = $url;
     }
 
-    public function get(string $path, callable $callable, string $name = null): Route
+    public function get(string $path, callable|string $callable, string $name = null): Route
     {
         return $this->add($path, $callable, $name, "GET");
     }
-    public function post(string $path, callable $callable, string $name = null): Route
+    public function post(string $path, callable|string $callable, string $name = null): Route
     {
         return $this->add($path, $callable, $name, "POST");
     }
 
-    private function add(string $path, callable $callable, string|null $name, string $method): Route
+    private function add(string $path, callable|string $callable, string|null $name, string $method): Route
     {
         $route = new Route($path, $callable);
         $this->routes[$method][] = $route;

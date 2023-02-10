@@ -1,5 +1,4 @@
 <?php $title = "Emi - Login" ?>
-
 <?php ob_start(); ?>
 <!-- Main -->
 <main class="container">
@@ -9,7 +8,7 @@
                 <h1>Log in</h1>
                 <h2>A minimalist layout for Login pages</h2>
             </hgroup>
-            <form action="../includes/login.inc.php" method="post">
+            <form action="/login" method="post">
                 <input type="text" name="username" placeholder="Login" aria-label="Login" autocomplete="nickname" required>
                 <input type="password" name="password" placeholder="Password" aria-label="Password" autocomplete="current-password" required>
                 <fieldset>
@@ -37,7 +36,5 @@
         <div></div>
     </article>
 </main><!-- ./ Main -->
-
 <?php $content = ob_get_clean(); ?>
-
 <?php require('+layout.php') ?>

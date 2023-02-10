@@ -1,6 +1,8 @@
 <?php $title = "Emi - Welcome" ?>
-
-<?php ob_start(); ?>
+<?php
+ob_start();
+session_start();
+?>
 <main class="container">
     <section id="welcome">
         <h2>Welcome to the website</h2>
@@ -13,5 +15,4 @@
     </section>
 </main>
 <?php $content = ob_get_clean(); ?>
-
 <?php require('+layout.php') ?>

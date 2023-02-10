@@ -1,6 +1,6 @@
 <?php
 
-namespace model\Entities;
+namespace App\model\entities;
 
 class User
 {

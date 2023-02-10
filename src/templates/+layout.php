@@ -1,9 +1,9 @@
 <?php
+if(empty(session_id())) session_start();
 /**
  * @var $title
  * @var $content
  */
-session_start();
 ?>
 
 <!DOCTYPE html>
@@ -36,8 +36,8 @@ session_start();
             echo "<li><a href='..' onclick='event.preventDefault()'>Profile</a></li>";
             echo "<li><a href='includes/logout.inc.php' >Log out</a></li>";
         } else {
-            echo "<li><a href='signup.php'>Sign up</a></li>";
-            echo "<li><a href='login.php'>Log in</a></li>";
+            echo "<li><a href='./signup'>Sign up</a></li>";
+            echo "<li><a href='./login'>Log in</a></li>";
         }
         ?>
     </ul>

@@ -1,4 +1,15 @@
 <?php
+namespace App;
+
+require '../vendor/autoload.php';
+
+use App\Controllers\{
+    WelcomeController,
+    LoginController
+};
+
+require_once './Controllers/WelcomeController.php';
+require_once './Controllers/LoginController.php';
 
 class Route
 {
@@ -42,7 +53,7 @@ class Route
     {
         if(is_string($this->callable)){
             $params = explode('#', $this->callable);
-            $controller = "Controller\\" . $params[0] . "Controller";
+            $controller = "App\\Controllers\\" . $params[0] . "Controller";
             $controller = new $controller();
             return call_user_func_array([$controller, $params[1]], $this->matches);
         } else {

@@ -1,12 +1,20 @@
 <?php
-namespace model;
+namespace App\model;
 
-use DatabaseConnection;
-use model\Entities\User;
+use App\model\DatabaseConnection;
+use App\model\entities\User;
+
+require_once(realpath($_SERVER["DOCUMENT_ROOT"]) . '/model/entities/User.php');
+require_once(realpath($_SERVER["DOCUMENT_ROOT"]) . '/model/DatabaseConnection.php');
 
 class UserRepository {
 
     public DatabaseConnection $database;
+
+    public function __construct()
+    {
+        $this->database = new DatabaseConnection();
+    }
 
     public function getUserMatchingPwd(string $uid, string $password): User
     {

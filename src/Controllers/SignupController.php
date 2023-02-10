@@ -1,7 +1,7 @@
 <?php
 
-namespace Controllers;
-use model;
+namespace App\Controllers;
+use App\model;
 
 class SignupController
 {

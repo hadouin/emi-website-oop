@@ -1,32 +1,46 @@
 <?php
 
-namespace Controllers;
+namespace App\Controllers;
+
+use App\model\entities\User;
+use App\model\UserRepository;
+
+require_once(realpath($_SERVER["DOCUMENT_ROOT"]) . '/model/UserRepository.php');
+
 class LoginController
 {
-    private string $uid;
-    private string $password;
-
-    public function __construct(string $uid, string $password)
-    {
-        $this->uid = $uid;
-        $this->password = $password;
-    }
-
-    public function loginUser(): void
+    private function loginUser(string $uid, string $password): void
     {
 
-        if ($this->emptyInput()) {
+        if (empty($uid) || empty($password)) {
             header("location: ../welcome.php?error=emptyInput");
             exit();
         }
 
-        $this->getUser($this->uid, $this->password);
+        $user = (new UserRepository)->getUserMatchingPwd($uid, $password);
 
+        session_start();
+        $_SESSION["userId"] = $user->id;
+        $_SESSION["userUid"] = $user->username;
+        $_SESSION["userEmail"] = $user->email;
+
+        header('location: /');
     }
 
-    private function emptyInput(): bool
+    public function post(): void
     {
-        return (empty($this->uid) || empty($this->password));
+        if (isset($_POST["submit"])) {
+            // grab data
+            $uid = $_POST["username"];
+            $password = $_POST["password"];
+
+            $this->loginUser($uid, $password);
+        }
+    }
+
+    public function get(): void
+    {
+        require_once 'templates/login.php';
     }
 
 }

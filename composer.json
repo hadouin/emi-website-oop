@@ -1,0 +1,18 @@
+{
+  "name": "emi/website",
+  "authors": [
+    {
+      "name": "Hadouin",
+      "email": "contact@hadouin.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "require": {
+    "phpmailer/phpmailer": "^v6.7.1",
+    "ext-pdo": "*"
+  }
+}
