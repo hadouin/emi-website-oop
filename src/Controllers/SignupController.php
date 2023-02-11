@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Controllers;
-use App\model;
+use App\model\UserRepository;
+
+require_once(realpath($_SERVER["DOCUMENT_ROOT"]) . '/model/UserRepository.php');
 
 class SignupController
 {
@@ -10,15 +12,42 @@ class SignupController
     private string $password;
     private string $passwordConfirm;
 
-    public function __construct(string $uid, string $email, string $password, string $passwordConfirm)
+    private UserRepository $userRepository;
+
+    public function __construct()
     {
-        $this->uid = $uid;
-        $this->email = $email;
-        $this->password = $password;
-        $this->passwordConfirm = $passwordConfirm;
+        $this->userRepository = new UserRepository();
     }
 
+    public function get():void
+    {
+        require_once 'templates/signup.php';
+    }
 
+    public function post(): void
+    {
+        if (isset($_POST["submit"])) {
+            // grab data
+            $uid = $_POST["uid"];
+            $email = $_POST["email"];
+            $password = $_POST["password"];
+            $passwordConfirm = $_POST["password-confirm"];
+
+            // set data
+            $this->uid = $uid;
+            $this->email = $email;
+            $this->password = $password;
+            $this->passwordConfirm = $passwordConfirm;
+
+            $this->signupUser();
+
+            header("location: /?error=none");
+            exit();
+        } else {
+            header("location: /signup");
+            exit();
+        }
+    }
 
     public function signupUser(): void
     {
@@ -43,7 +72,7 @@ class SignupController
             exit();
         }
 
-        (new model\UserRepository)->setUser($this->uid, $this->email, $this->password);
+        $this->userRepository->setUser($this->uid, $this->email, $this->password);
     }
 
     private function emptyInput(): bool
@@ -68,7 +97,7 @@ class SignupController
 
     private function uidTaken(): bool
     {
-        return (new model\UserRepository)->checkUser($this->uid, $this->email);
+        return $this->userRepository->checkUser($this->uid, $this->email);
     }
 }
 

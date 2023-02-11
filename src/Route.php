@@ -6,12 +6,14 @@ require '../vendor/autoload.php';
 use App\Controllers\{
     WelcomeController,
     LoginController,
-    NotFoundController
+    NotFoundController,
+    SignupController
 };
 
 require_once './Controllers/WelcomeController.php';
 require_once './Controllers/LoginController.php';
 require_once './Controllers/NotFoundController.php';
+require_once './Controllers/SignupController.php';
 
 class Route
 {

@@ -43,7 +43,7 @@ body > main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: calc(100vh - 7rem);
+    min-height: calc(100vh - 11rem);
     padding: 1rem 0;
 }
 

@@ -10,8 +10,13 @@ require_once 'RouterException.php';
 
 $router = new Router($_GET['url']);
 $router->get('/', 'Welcome#show');
+
+$router->get('/signup', 'Signup#get');
+$router->post('/signup', 'Signup#post');
+
 $router->get('/login', 'Login#get');
 $router->post('/login', 'Login#post');
+
 $router->get('/404', 'NotFound#show');
 try {
     $router->run();
