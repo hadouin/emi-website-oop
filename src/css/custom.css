@@ -24,6 +24,10 @@ nav .nav-middle{
     letter-spacing: 2px;
 }
 
+textarea {
+    resize: vertical;
+}
+
 button {
     --font-size: 0.825rem;
     font-size: var(--font-size);
@@ -167,4 +171,20 @@ header p {
     width: 80px;
     background-image: url("../assets/img/emi-logo-full-light.png");
     background-size: contain;
+}
+
+.filter-to-emi-primary {
+    filter: invert(65%) sepia(66%) saturate(5228%) hue-rotate(198deg) brightness(96%) contrast(90%);
+}
+
+.boxed-icon {
+    padding: 3px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--primary);
+}
+
+details summary {
+    font-size: large;
+    font-weight: 500;
 }
