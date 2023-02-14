@@ -39,31 +39,26 @@ if(empty(session_id())) session_start();
     </ul>
     <ul class="nav-middle">
         <li><a href='/'>Accueil</a></li>
-        <li><a href='/'>FAQ</a></li>
-        <li><a href='/'>Contact</a></li>
-        <?php
-        if (isset($_SESSION["userId"])){
-            echo "<li><a href='..' onclick='event.preventDefault()'>Profile</a></li>";
-            echo "<li><a href='includes/logout.inc.php' >Log out</a></li>";
-        } else {
-            echo "<li><a href='/signup'>Sign up</a></li>";
-            echo "<li><a href='/login'>Log in</a></li>";
-        }
-        ?>
+        <li><a href='#faq'>FAQ</a></li>
+        <li><a href='#contact'>Contact</a></li>
     </ul>
     <ul style="flex: 1; justify-content: end">
-        <li>
-            <details role="list" dir="rtl">
-                <summary aria-haspopup="listbox" role="link" class="secondary">Theme</summary>
+        <?php
+        if (isset($_SESSION["userId"])){
+            echo "<li><button href='includes/logout.inc.php' class='outline' >Log out</button></li>";
+        } else {
+            echo "<li><a href='/signup'>Sign up</a></li>";
+            echo "<li><button href='/login'>Log in</button></li>";
+        }
+        ?>
+        <li class="theme-switcher">
+            <details role="list" dir="rtl" >
+                <summary aria-haspopup="listbox" role="link" class="secondary"><i class="icon current-theme-icon"></i></summary>
                 <ul role="listbox">
-                    <li><a href="#" data-theme-switcher="auto">Auto</a></li>
                     <li><a href="#" data-theme-switcher="light">Light</a></li>
-                    <li><a href="#" data-theme-switcher="dark">Dark</a></li>
+                    <li><a href="#" data-theme-switcher="dark">Dark</i></a></li>
                 </ul>
             </details>
-        </li>
-        <li>
-            <button class="outline">Button</button>
         </li>
     </ul>
 </nav><!-- ./ Nav -->

@@ -13,6 +13,7 @@
   },
   "require": {
     "phpmailer/phpmailer": "^v6.7.1",
-    "ext-pdo": "*"
+    "ext-pdo": "*",
+    "ext-curl": "*"
   }
 }

@@ -17,6 +17,8 @@ $router->post('/signup', 'Signup#post');
 $router->get('/login', 'Login#get');
 $router->post('/login', 'Login#post');
 
+$router->get('/logs', 'Logs#get');
+
 $router->get('/404', 'NotFound#show');
 try {
     $router->run();

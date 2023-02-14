@@ -5,10 +5,11 @@
     --font-weight: 400;
     --font-size: 1rem;
 
-    --typography-spacing-vertical: 1.5rem;
+    --typography-spacing-vertical: 2rem;
     --nav-element-spacing-horizontal: 1rem;
     --nav-element-spacing-vertical: 2rem;
     --form-element-spacing-vertical: 0.2rem;
+    --block-spacing-vertical: 4rem;
 
     --border-radius: 0;
 }
@@ -152,10 +153,14 @@ body > footer {
     /*animation: cog 6s ease-in-out infinite!important*/
 }
 
+body>header {
+    margin-bottom: 100px;
+}
+
 header h1 {
     margin-bottom: var(--spacing);
     font-weight: 900;
-    font-size: 3rem;
+    font-size: 4rem;
 }
 header h1, header p {
     text-align: center;
@@ -169,8 +174,14 @@ header p {
 .emi-logo {
     height: 35px;
     width: 80px;
-    background-image: url("../assets/img/emi-logo-full-light.png");
     background-size: contain;
+}
+
+[data-theme='light'] .emi-logo {
+    background-image: url("../assets/img/emi-logo-full-light.png");
+}
+[data-theme='dark'] .emi-logo {
+    background-image: url("../assets/img/emi-logo-full-dark.png");
 }
 
 .filter-to-emi-primary {
@@ -187,4 +198,52 @@ header p {
 details summary {
     font-size: large;
     font-weight: 500;
+}
+
+.theme-switcher {
+    display: flex;
+    align-items: center;
+}
+
+.theme-switcher summary{
+    align-items: center;
+}
+
+.theme-switcher summary::after {
+    display: none!important;
+}
+
+.theme-switcher ul[role='listbox'] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.theme-switcher li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    display: block;
+    height: 16px;
+    width: 16px;
+    background-size: contain;
+    filter: invert(65%) sepia(66%) saturate(5228%) hue-rotate(198deg) brightness(96%) contrast(90%);
+}
+
+[data-theme='light'] .current-theme-icon {
+    background-image: url("../assets/icons/sun.svg");
+}
+
+[data-theme='dark'] .current-theme-icon {
+    background-image: url("../assets/icons/moon.svg");
+}
+
+.light-theme-icon {
+    background-image: url("../assets/icons/sun.svg");
+}
+.dark-theme-icon {
+    background-image: url("../assets/icons/moon.svg");
 }

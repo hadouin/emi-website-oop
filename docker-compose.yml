@@ -17,6 +17,11 @@ services:
       - ./vendor:/var/www/vendor
     stdin_open: true
     tty: true
+    networks:
+      frontend:
+        aliases:
+          - projets-tomcat.isep.fr
+      backend:
 
   db:
     image: mariadb
@@ -32,6 +37,8 @@ services:
     volumes:
       - ./db/init.sql:/data/application/init.sql
       - mysql-data:/var/lib/mysql
+    networks:
+      backend:
 
   phpmyadmin:
     image: phpmyadmin
@@ -42,6 +49,8 @@ services:
       - PMA_HOST=db
     depends_on:
       - db
+    networks:
+      backend:
 
   composer_installation:
     container_name: composer_installation
@@ -49,6 +58,12 @@ services:
     volumes:
       - ./:/app
     command: composer install --ignore-platform-reqs
+    networks:
+      backend:
 
 volumes:
   mysql-data:
+
+networks:
+  frontend:
+  backend:
