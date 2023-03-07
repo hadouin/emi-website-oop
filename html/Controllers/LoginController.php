@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\model\entities\User;
 use App\model\UserRepository;
 
-require_once(realpath($_SERVER["DOCUMENT_ROOT"]) . '/model/UserRepository.php');
+require __DIR__ . '/../../vendor/autoload.php';
 
 class LoginController
 {

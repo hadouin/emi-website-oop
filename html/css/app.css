@@ -1043,16 +1043,16 @@ header .image-text .profession{
     width: 60px;
 }
 
-.mode .sun-moon i{
+.mode .sun-moon .icon{
     position: absolute;
 }
-.mode .sun-moon i.sun{
+.mode .sun-moon .icon.sun{
     opacity: 0;
 }
-[data-theme="dark"] .mode .sun-moon i.sun{
+[data-theme="dark"] .mode .sun-moon .icon.sun{
     opacity: 1;
 }
-[data-theme="dark"] .mode .sun-moon i.moon{
+[data-theme="dark"] .mode .sun-moon .icon.moon{
     opacity: 0;
 }
 

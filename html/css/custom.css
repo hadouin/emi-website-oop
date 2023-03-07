@@ -40,19 +40,14 @@ textarea {
     resize: vertical;
 }
 
-button {
-    --font-size: 0.825rem;
-    font-size: var(--font-size);
-    --font-weight: 700;
-    text-transform: uppercase!important;
-}
-
+button,
 a[role="button"] {
     --font-size: 0.825rem;
     font-size: var(--font-size);
     --font-weight: 700;
     text-transform: uppercase!important;
 }
+
 
 /* Grid */
 body > main {
@@ -464,7 +459,7 @@ header .image-text .profession{
     width: 60px;
 }
 
-.mode .sun-moon i{
+.mode .sun-moon .icon {
     position: absolute;
 }
 .mode .sun-moon i.sun{

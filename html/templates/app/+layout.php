@@ -7,7 +7,7 @@ if(empty(session_id())) session_start();
 ?>
 
 <!DOCTYPE html>
-<html lang="fr" dir="ltr">
+<html lang="fr" dir="ltr" data-theme="light">
 <head>
     <meta charset="utf-8">
     <title><?= $title ?? 'Emi App' ?></title>

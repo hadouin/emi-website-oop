@@ -45,10 +45,10 @@ if(empty(session_id())) session_start();
     <ul style="flex: 1; justify-content: end">
         <?php
         if (isset($_SESSION["userId"])){
-            echo "<li><button href='includes/logout.inc.php' class='outline' >Log out</button></li>";
+            echo "<li><a href='includes/logout.inc.php' role='button' class='outline' >Log out</a></li>";
         } else {
             echo "<li><a href='/signup'>Sign up</a></li>";
-            echo "<li><button href='/login'>Log in</button></li>";
+            echo "<li><a href='/login' role='button' >Log in</a></li>";
         }
         ?>
         <li class="theme-switcher">
