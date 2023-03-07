@@ -1,7 +1,7 @@
 <?php
 
-use App\Router;
-use App\RouterException;
+use Emi\Router;
+use Emi\RouterException;
 
 require __DIR__ . '/../vendor/autoload.php';
 

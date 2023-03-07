@@ -1,8 +1,8 @@
 <?php
-namespace App\model;
+namespace Emi\model;
 
-use App\model\DatabaseConnection;
-use App\model\entities\User;
+use Emi\model\DatabaseConnection;
+use Emi\model\entities\User;
 
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) . '/model/entities/User.php');
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) . '/model/DatabaseConnection.php');

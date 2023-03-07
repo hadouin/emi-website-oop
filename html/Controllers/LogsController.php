@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace Emi\Controllers;
 
 class LogsController
 {

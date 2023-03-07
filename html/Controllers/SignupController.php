@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Controllers;
-use App\model\UserRepository;
+namespace Emi\Controllers;
+use Emi\model\UserRepository;
 
 require __DIR__ . '/../../vendor/autoload.php';
 
