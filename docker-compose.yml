@@ -13,14 +13,14 @@ services:
     env_file:
       - .env
     volumes:
-      - ./src:/var/www/html/
+      - ./html:/var/www/html/
       - ./vendor:/var/www/vendor
     stdin_open: true
     tty: true
     networks:
       frontend:
         aliases:
-          - projets-tomcat.isep.fr
+          - projets-tomcat.isep.fr:172.27.32.14:8080
       backend:
 
   db:

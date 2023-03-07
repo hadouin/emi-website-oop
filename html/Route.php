@@ -1,22 +1,16 @@
 <?php
 namespace App;
 
-require '../vendor/autoload.php';
-
 use App\Controllers\{
     WelcomeController,
     LoginController,
     NotFoundController,
     SignupController,
-    LogsController
+    LogsController,
+    AppController
 };
 
-require_once './Controllers/WelcomeController.php';
-require_once './Controllers/LoginController.php';
-require_once './Controllers/NotFoundController.php';
-require_once './Controllers/SignupController.php';
-require_once './Controllers/LogsController.php';
-
+require __DIR__ . '/../vendor/autoload.php';
 
 class Route
 {
