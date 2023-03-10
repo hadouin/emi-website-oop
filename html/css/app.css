@@ -149,26 +149,31 @@ h6 {
 h1 {
     --font-size: 2rem;
     --typography-spacing-vertical: 3rem;
+    color: var(--h1-color);
 }
 
 h2 {
     --font-size: 1.75rem;
     --typography-spacing-vertical: 2.625rem;
+    color: var(--h2-color);
 }
 
 h3 {
     --font-size: 1.5rem;
     --typography-spacing-vertical: 2.25rem;
+    color: var(--h3-color);
 }
 
 h4 {
     --font-size: 1.25rem;
     --typography-spacing-vertical: 1.874rem;
+    color: var(--h4-color);
 }
 
 h5 {
     --font-size: 1.125rem;
     --typography-spacing-vertical: 1.6875rem;
+    color: var(--h5-color);
 }
 
 [type=checkbox],
@@ -206,7 +211,7 @@ kbd {
 
 [data-theme=light],
 :root:not([data-theme=dark]) {
-    --background-color: #fff;
+    --background-color: #e0e0e0;
     --color: hsl(205deg, 20%, 32%);
     --h1-color: hsl(205deg, 30%, 15%);
     --h2-color: #24333e;
@@ -274,7 +279,7 @@ kbd {
     --accordion-border-color: var(--muted-border-color);
     --accordion-close-summary-color: var(--color);
     --accordion-open-summary-color: var(--muted-color);
-    --card-background-color: var(--background-color);
+    --card-background-color: #fff;
     --card-border-color: var(--muted-border-color);
     --card-box-shadow:
             0.0145rem 0.029rem 0.174rem rgba(27, 40, 50, 0.01698),
@@ -578,18 +583,11 @@ progress,
     --form-element-spacing-vertical: 0.2rem;
     --block-spacing-vertical: 4rem;
 
-    --border-radius: 0;
-
     /* app layout */
     --sidebar-color: #FFF;
     --toggle-color: #DDD;
     --primary-color-light: #F6F5FF;
 
-    /* ====== Transition ====== */
-    --tran-03: all 0.2s ease;
-    --tran-03: all 0.3s ease;
-    --tran-04: all 0.3s ease;
-    --tran-05: all 0.3s ease;
 }
 
 [data-theme='dark'] {
@@ -627,15 +625,6 @@ a[role="button"] {
     text-transform: uppercase!important;
 }
 
-/* Grid */
-body > main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: calc(100vh - 11rem);
-    padding: 1rem 0;
-}
-
 article {
     padding: 0;
     overflow: hidden;
@@ -647,7 +636,7 @@ article > div {
 
 @media (min-width: 576px) {
     body > main {
-        padding: 1.25rem 0;
+        padding: 0 0;
     }
 
     article > div {
@@ -657,7 +646,7 @@ article > div {
 
 @media (min-width: 768px) {
     body > main {
-        padding: 1.5rem 0;
+        padding: 0 0;
     }
 
     article > div {
@@ -667,7 +656,7 @@ article > div {
 
 @media (min-width: 992px) {
     body > main {
-        padding: 1.75rem 0;
+        padding: 0 0;
     }
 
     article > div {
@@ -677,7 +666,7 @@ article > div {
 
 @media (min-width: 1200px) {
     body > main {
-        padding: 2rem 0;
+        padding: 0 0;
     }
 
     article > div {
@@ -828,9 +817,8 @@ details summary {
 /*===APP layout===*/
 
 body{
-    min-height: 100vh;
     background-color: var(--background-color);
-    transition: var(--tran-05);
+    transition: var(--transition);
 }
 
 ::selection{
@@ -839,7 +827,7 @@ body{
 }
 
 :root {
-    transition: background-color 0.5s ease;
+    transition: all 0.2s ease-in-out;
 }
 
 /* ===== Sidebar ===== */
@@ -851,7 +839,7 @@ body{
     width: 250px;
     padding: 10px 14px;
     background: var(--sidebar-color);
-    transition: var(--tran-05);
+    transition: var(--transition);
     z-index: 100;
 }
 .sidebar.close{
@@ -860,7 +848,7 @@ body{
 
 
 .sidebar + main {
-    margin-left: 250px;
+    margin-left: 260px;
     transition: margin-left 0.3s ease;
 }
 
@@ -896,7 +884,7 @@ body{
 .sidebar .text,
 .sidebar .icon{
     color: var(--color);
-    transition: var(--tran-03);
+    transition: var(--transition);
 }
 
 .sidebar .text{
@@ -961,7 +949,7 @@ header .image-text .profession{
     justify-content: center;
     font-size: 22px;
     cursor: pointer;
-    transition: var(--tran-05);
+    transition: var(--transition);
 }
 
 [data-theme="dark"] .sidebar header .toggle{
@@ -981,7 +969,7 @@ header .image-text .profession{
     border-radius: 6px;
     background-color: var(--primary-color-light);
     cursor: pointer;
-    transition: var(--tran-05);
+    transition: var(--transition);
 }
 
 .sidebar li.search-box input{
@@ -994,7 +982,7 @@ header .image-text .profession{
     border-radius: 6px;
     font-size: 17px;
     font-weight: 500;
-    transition: var(--tran-05);
+    transition: var(--transition);
 }
 .sidebar li a{
     list-style: none;
@@ -1005,7 +993,7 @@ header .image-text .profession{
     width: 100%;
     border-radius: 6px;
     text-decoration: none;
-    transition: var(--tran-03);
+    transition: var(--transition);
 }
 
 .sidebar li a:hover{
@@ -1035,7 +1023,7 @@ header .image-text .profession{
     border-radius: 6px;
     background-color: var(--primary-color-light);
     position: relative;
-    transition: var(--tran-05);
+    transition: var(--transition);
 }
 
 .menu-bar .mode .sun-moon{
@@ -1073,7 +1061,7 @@ header .image-text .profession{
     width: 40px;
     border-radius: 25px;
     background-color: var(--toggle-color);
-    transition: var(--tran-05);
+    transition: var(--transition);
 }
 
 .switch::before{
@@ -1086,7 +1074,7 @@ header .image-text .profession{
     left: 5px;
     transform: translateY(-50%);
     background-color: var(--sidebar-color);
-    transition: var(--tran-04);
+    transition: var(--transition);
 }
 
 [data-theme="dark"] .switch::before{
@@ -1100,7 +1088,7 @@ header .image-text .profession{
     height: 100vh;
     width: calc(100% - 250px);
     background-color: var(--background-color);
-    transition: var(--tran-05);
+    transition: var(--transition);
 }
 .home .text{
     font-size: 30px;
@@ -1120,4 +1108,36 @@ header .image-text .profession{
 
 .sidebar ul {
     padding-left: 0;
+}
+
+article {
+    background-color: var(--card-background-color);
+    padding: var(--spacing);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+/**
+* Grid
+* Minimal grid system with auto-layout columns
+*/
+.grid {
+    grid-column-gap: var(--grid-spacing-horizontal);
+    grid-row-gap: var(--grid-spacing-vertical);
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0;
+}
+@media (min-width: 992px) {
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(0%, 1fr));
+    }
+}
+.grid > * {
+    min-width: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
 }
