@@ -22,13 +22,13 @@ class UserRepository {
 
         if (!$stmt->execute(array($uid))) {
             $stmt = null;
-            header("location: ../welcome.php?error=stmtFailed");
+            header("location: ../welcome?error=stmtFailed");
             exit();
         }
 
         if($stmt->rowCount() == 0){
             $stmt = null;
-            header("location: ../login.php?error=userNotFound");
+            header("location: ../login?error=userNotFound");
             exit();
         }
 
@@ -37,7 +37,7 @@ class UserRepository {
 
         if (!$checkPwd){
             $stmt = null;
-            header("location: ../login.php?error=wrongPassword");
+            header("location: ../login?error=wrongPassword");
             exit();
         } else {
 
@@ -45,13 +45,13 @@ class UserRepository {
 
             if (!$stmt->execute(array($uid))) {
                 $stmt = null;
-                header("location: ../login.php?error=stmtFailed");
+                header("location: ../login?error=stmtFailed");
                 exit();
             }
 
             if($stmt->rowCount() == 0){
                 $stmt = null;
-                header("location: ../login.php?error=userNotFound");
+                header("location: ../login?error=userNotFound");
                 exit();
             }
 
@@ -73,7 +73,7 @@ class UserRepository {
 
         if (!$stmt->execute(array($uid, $email, $hashedPassword))) {
             $stmt = null;
-            header("location: ../welcome.php?error=stmt-failed");
+            header("location: ../welcome?error=stmt-failed");
             exit();
         }
 
@@ -86,7 +86,7 @@ class UserRepository {
 
         if (!$stmt->execute(array($uid, $email))) {
             $stmt = null;
-            header("location: ../welcome.php?error=stmt-failed");
+            header("location: ../welcome?error=stmt-failed");
             exit();
         }
 

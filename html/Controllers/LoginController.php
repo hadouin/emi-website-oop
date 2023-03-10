@@ -13,7 +13,7 @@ class LoginController
     {
 
         if (empty($uid) || empty($password)) {
-            header("location: ../welcome.php?error=emptyInput");
+            header("location: /login?error=emptyInput");
             exit();
         }
 
