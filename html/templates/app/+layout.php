@@ -3,6 +3,7 @@ if(empty(session_id())) session_start();
 /**
  * @var $title
  * @var $content
+ * @var string $userRole
  */
 ?>
 
@@ -36,8 +37,13 @@ if(empty(session_id())) session_start();
                 </span>
 
             <div class="text logo-text">
-                <span class="name">Codinglab</span>
-                <span class="profession">Web developer</span>
+                <span class="name"><?php echo $_SESSION['userUid'] ?></span>
+                <span class="profession">
+                    <?php
+
+                        echo $userRole
+                    ?>
+                </span>
             </div>
         </div>
 
@@ -55,8 +61,16 @@ if(empty(session_id())) session_start();
             </li>
 
             <ul class="menu-links">
-                <li class="nav-link">
-                    <a href="#">
+                <li class="nav-link"
+                >
+                    <a href="/app" <?php
+                    $parsed_url = parse_url($_SERVER['REQUEST_URI']);
+                    $path = $parsed_url['path'];
+                    if ($path == '/app') {
+                        echo 'class="active"';
+                    }
+                    ?>
+                    >
                         <div class="icon"><i data-feather="pie-chart"></i></div>
                         <span class="text nav-text">Dashboard</span>
                     </a>
