@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "chart.js": "^4.2.1"
+  },
+  "devDependencies": {
+    "prisma-dbml-generator": "^0.10.0"
+  }
+}

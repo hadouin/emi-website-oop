@@ -1,0 +1,69 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator dbml {
+  provider            = "prisma-dbml-generator"
+  projectName         = "Project Emi"
+  projectDatabaseType = "MySQL"
+  projectNote         = "Emi project APP G10D"
+}
+
+model Organization {
+  id     Int      @id @unique
+  name   String?
+  User   User[]
+  Worker Worker[]
+  Device Device[]
+}
+
+model User {
+  id             Int           @id @unique
+  role           Role?
+  email          String        @unique
+  password       String?
+  name           String?
+  organization   Organization? @relation(fields: [organizationId], references: [id])
+  organizationId Int?
+}
+
+model Worker {
+  id             Int          @id @unique
+  name           String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+  organizationId Int
+  Log            Log[]
+}
+
+model Device {
+  id             Int          @id @unique
+  serial         String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+  organizationId Int
+  Log            Log[]
+}
+
+model Log {
+  id       String   @id @unique @default(uuid())
+  datetime DateTime
+  sensor   Sensor?
+  value    Int?
+  device   Device?  @relation(fields: [deviceId], references: [id])
+  worker   Worker?  @relation(fields: [workerId], references: [id])
+  deviceId Int?
+  workerId Int?
+}
+
+enum Role {
+  ADMIN
+  MANAGER
+  USER
+}
+
+enum Sensor {
+  TMP
+  HUM
+  BPM
+  AIR
+}
