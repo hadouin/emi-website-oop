@@ -14,6 +14,10 @@ Navigate to the project directory
 ```bash
 cd emi-website-oop
 ```
+  
+
+> **On windows:**  
+> download [Docker-Desktop](https://www.docker.com/products/docker-desktop/)
 
 Start the services
 ```bash
@@ -45,6 +49,9 @@ docker-compose up -d
 ├── docker-compose.yml
 ├── dockerfile
 ├── package.json
-├── 
 └── ...
 ```
+
+### `src/`
+The `src/` folder is where most of your project source code lives. This includes:
+
