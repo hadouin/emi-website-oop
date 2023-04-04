@@ -116,4 +116,21 @@ class User
     public Role $role;
 }
 ```
+#### Les Repositories
+Les repositories sont des moyens d'acceder a la BDD. Ils contiennent des méthodes qui executent des queries SQL pour récupérer les différentes données en fonction des entities. De fait chaque entite a son repository.  
+Par exemple:
+```php
+class UserRepository {
 
+    public DatabaseConnection $database;
+
+    public function __construct()
+    {
+        $this->database = new DatabaseConnection();
+    }
+    public function getUserMatchingPwd(string $uid, string $password): User
+    public function setUser(string $uid, string $email, string $password): void
+    public function checkUser(string $uid, string $email) : bool
+
+}
+```
