@@ -75,13 +75,12 @@ Cet utilisateur a les droits pour la BDD spécifié dans `MYSQL_DATABASE`
 ├── src/
 │   ├── assets/
 │   ├── controllers/
-│   ├── css/
-│   ├── js/
 │   ├── includes/
 │   ├── model/
 │   │   ├── entities/
 │   ├── templates/
 │   │   ├── app/
+│   │   ├── forum/
 │   ├── .htaccess
 │   ├── index.php
 ├── .env
@@ -94,5 +93,27 @@ Cet utilisateur a les droits pour la BDD spécifié dans `MYSQL_DATABASE`
 ```
 
 ### `src/`
-The `src/` folder is where most of your project source code lives. This includes:
+The `src/` folder is where most of your project source code lives.
+#### `assets/`
+Ce qui n'est pas du code php donc on a les images le css et le js
+#### `controllers/` 
+Les controllers PHP. Chacun est utilisé pour une route `GET` et `POST`. 
+- En `GET` on va render la page qu'il faut afficher avec l'initialisades bonnes variables.
+- En `POST` on va faire des actions de type CRUD (Create Read Update Delete) pour alterer la base de données
+#### `includes` 🚧depreceated🚧
+Les includes sont voués à disparaitre utile avant pour la version non MVC
+#### `model/` 
+La ou vit le modèle de donnée de l'application cad les classes d'objets et les definitions des repositories
+##### `entities/`
+Dans entities on met ce qui est vraiment la classe d'un objet avec ses fields, getters and setters.  
+Par exemple la classe `User`
+```php
+class User
+{
+    public string $id;
+    public string $username;
+    public string $email;
+    public Role $role;
+}
+```
 
