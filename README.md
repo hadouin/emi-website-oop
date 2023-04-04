@@ -27,7 +27,7 @@ docker-compose up -d
 -->
 
 ```bash
-├── html/
+├── src/
 │   ├── assets/
 │   ├── controllers/
 │   ├── css/
