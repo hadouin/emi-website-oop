@@ -71,6 +71,22 @@ if(empty(session_id())) session_start();
 <!-- Footer -->
 <footer class="container">
     <small>Built with <a href="https://picocss.com" class="secondary">Pico</a> • <a href="https://github.com/picocss/examples/tree/master/sign-in/" class="secondary">Source code</a></small>
+    <div class="footer-content">
+        <div class="footer-contact">
+            <h3>Nous contacter</h3>
+            <p>06 XX XX XX XX</p>
+            <p>EMI-support@gmail.com</p>
+            <p>10 Rue de Vanves, 92130 Issy-les-Moulineaux</p>
+        </div>
+
+        <div class="footer-medias">
+            <ul>
+                <li><a href="#">GitHub</a></li>
+                <li><a>Twitter</a></li>
+                <li><a>Instagram</a></li>
+            </ul>
+        </div>
+    </div>
 </footer><!-- ./ Footer -->
 
 </body>
