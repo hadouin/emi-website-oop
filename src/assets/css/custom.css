@@ -117,7 +117,7 @@ summary[role="link"].secondary:is([aria-current],:hover,:active,:focus) {
 article div:nth-of-type(2) {
     display: none;
     background-color: #374956;
-    background-image: url("../assets/img/alessio-soggetti-8jeWeKdygfk-unsplash-1000x1200.jpg");
+    background-image: url("../img/alessio-soggetti-8jeWeKdygfk-unsplash-1000x1200.jpg");
     background-position: center;
     background-size: cover;
 }
@@ -142,7 +142,7 @@ body > footer {
     position: absolute;
     width: 50px;
     height: 50px;
-    background-image: url("../assets/img/cog-3d-simple-transparent.svg");
+    background-image: url("../img/cog-3d-simple-transparent.svg");
     z-index: -1;
 }
 
@@ -185,10 +185,11 @@ header p {
 }
 
 [data-theme='light'] .emi-logo {
-    background-image: url("../assets/img/emi-logo-full-light.png");
+    background-image: url("../img/emi-logo-full-light.png");
 }
-[data-theme='dark'] .emi-logo {
-    background-image: url("../assets/img/emi-logo-full-dark.png");
+[data-theme='dark'] .emi-logo,
+:root:not([data-theme="dark"]) .emi-logo {
+    background-image: url("../img/emi-logo-full-dark.png");
 }
 
 .filter-to-emi-primary {
@@ -241,18 +242,18 @@ details summary {
 }
 
 [data-theme='light'] .current-theme-icon {
-    background-image: url("../assets/icons/sun.svg");
+    background-image: url("../icons/sun.svg");
 }
 
 [data-theme='dark'] .current-theme-icon {
-    background-image: url("../assets/icons/moon.svg");
+    background-image: url("../icons/moon.svg");
 }
 
 .light-theme-icon {
-    background-image: url("../assets/icons/sun.svg");
+    background-image: url("../icons/sun.svg");
 }
 .dark-theme-icon {
-    background-image: url("../assets/icons/moon.svg");
+    background-image: url("../icons/moon.svg");
 }
 
 /*===APP layout===*/

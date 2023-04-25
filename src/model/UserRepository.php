@@ -18,7 +18,7 @@ class UserRepository {
 
     public function getUserMatchingPwd(string $uid, string $password): User
     {
-        $stmt = $this->database->getConnection()->prepare('SELECT users_pwd FROM users WHERE users_uid = ?;');
+        $stmt = $this->database->getConnection()->prepare('SELECT user_pwd FROM user WHERE user_uid = ?;');
 
         if (!$stmt->execute(array($uid))) {
             $stmt = null;
@@ -33,7 +33,7 @@ class UserRepository {
         }
 
         $pwdHashed = $stmt->fetch();
-        $checkPwd = password_verify($password, $pwdHashed["users_pwd"]);
+        $checkPwd = password_verify($password, $pwdHashed["user_pwd"]);
 
         if (!$checkPwd){
             $stmt = null;
@@ -41,7 +41,7 @@ class UserRepository {
             exit();
         } else {
 
-            $stmt = $this->database->getConnection()->prepare('SELECT * FROM users WHERE users_uid = ?');
+            $stmt = $this->database->getConnection()->prepare('SELECT * FROM user WHERE user_uid = ?');
 
             if (!$stmt->execute(array($uid))) {
                 $stmt = null;
@@ -58,9 +58,9 @@ class UserRepository {
             $userFetchedRow = $stmt->fetch();
 
             $resUser = new User();
-            $resUser->id = $userFetchedRow["users_id"];
-            $resUser->username = $userFetchedRow["users_uid"];
-            $resUser->email = $userFetchedRow["users_email"];
+            $resUser->id = $userFetchedRow["user_id"];
+            $resUser->username = $userFetchedRow["user_uid"];
+            $resUser->email = $userFetchedRow["user_email"];
 
             return $resUser;
         }
@@ -68,7 +68,7 @@ class UserRepository {
 
     public function setUser(string $uid, string $email, string $password): void
     {
-        $stmt = $this->database->getConnection()->prepare("INSERT INTO users (users_uid, users_email, users_pwd) VALUES (?,?,?)");
+        $stmt = $this->database->getConnection()->prepare("INSERT INTO user (user_uid, user_email, user_pwd) VALUES (?,?,?)");
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         if (!$stmt->execute(array($uid, $email, $hashedPassword))) {
@@ -82,7 +82,7 @@ class UserRepository {
 
     public function checkUser(string $uid, string $email) : bool
     {
-        $stmt = $this->database->getConnection()->prepare('SELECT users_uid FROM users WHERE users_uid = ? OR users_email = ?;');
+        $stmt = $this->database->getConnection()->prepare('SELECT user_uid FROM user WHERE user_uid = ? OR user_email = ?;');
 
         if (!$stmt->execute(array($uid, $email))) {
             $stmt = null;

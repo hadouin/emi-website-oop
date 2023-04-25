@@ -11,8 +11,8 @@ if(empty(session_id())) session_start();
 <head>
     <meta charset="utf-8">
     <title><?= $title ?? 'Emi Website' ?></title>
-    <link rel="stylesheet" href="css/pico.min.css">
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="../assets/css/pico.min.css">
+    <link rel="stylesheet" href="../assets/css/custom.css">
 
     <!--Favicons-->
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
@@ -64,7 +64,7 @@ if(empty(session_id())) session_start();
 </nav><!-- ./ Nav -->
 
 <!-- Minimal theme switcher -->
-<script src="../js/minimal-theme-switcher.js"></script>
+<script src="../assets/js/minimal-theme-switcher.js"></script>
 
 <?= $content ?? '<p>No content</p>' ?>
 
