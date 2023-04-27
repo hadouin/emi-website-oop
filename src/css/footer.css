@@ -1,0 +1,51 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    background-color: #4A86E8;
+    text-align: center;
+}
+
+.footer-content {
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    font-size: 15px;
+    padding: 10px 0 30px;
+}
+
+.bloc {
+    width: 33%;
+    margin: 0px 30px;
+    color: white;
+}
+
+.bloc h3 {
+    margin-bottom: 25px;
+}
+
+.footer-list li{
+    list-style: none;
+    text-decoration: none;
+}
+
+.footer-list a{
+    text-decoration: none;
+    color: white;
+}
+
+.footer-list a:hover{
+    color: rgb(3, 3, 3);
+}
+.footer-list li {
+    padding-bottom: 12px;
+}
+
+.footer-contact p {
+    color: white;
+}

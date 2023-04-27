@@ -67,8 +67,8 @@ if(empty(session_id())) session_start();
 <?= $content ?? '<p>No content</p>' ?>
 
 <!-- Footer -->
-<footer class="container">
-    <small>Built with <a href="https://picocss.com" class="secondary">Pico</a> • <a href="https://github.com/picocss/examples/tree/master/sign-in/" class="secondary">Source code</a></small>
+<footer class="container-fluid">
+    <?php include "footer.html"; ?>
 </footer><!-- ./ Footer -->
 
 </body>
