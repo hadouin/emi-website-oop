@@ -10,6 +10,7 @@ if(empty(session_id())) session_start();
     <meta charset="utf-8">
     <title><?= $title ?? 'Emi Website' ?></title>
     <link rel="stylesheet" href="../assets/css/pico.min.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
     <link rel="stylesheet" href="../assets/css/custom.css">
 
     <!--Favicons-->
@@ -67,8 +68,8 @@ if(empty(session_id())) session_start();
 <?= $content ?? '<p>No content</p>' ?>
 
 <!-- Footer -->
-<footer class="container-fluid">
-    <?php include "footer.html"; ?>
+<footer class="container-fluid footer">
+    <?php include "footer.php"; ?>
 </footer><!-- ./ Footer -->
 
 </body>
