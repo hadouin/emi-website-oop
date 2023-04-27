@@ -20,6 +20,12 @@ $router->get('/logs', 'Logs#get');
 
 $router->get('/app', 'App#get');
 
+$router->get('/app/workers', 'Worker#showAll');
+
+$router->get('/app/workers/new', 'Worker#new');
+$router->post('/app/workers/new', 'Worker#post');
+
+
 $router->get('/404', 'NotFound#show');
 
 try {

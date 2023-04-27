@@ -9,7 +9,7 @@ services:
       - db
       - composer_installation
     ports:
-      - "80:80"
+      - "2003:80"
     env_file:
       - .env
     volumes:
@@ -44,7 +44,7 @@ services:
     image: phpmyadmin
     restart: always
     ports:
-      - "8080:80"
+      - "8081:80"
     environment:
       - PMA_HOST=db
     depends_on:

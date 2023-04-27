@@ -7,7 +7,8 @@ use Emi\Controllers\{
     NotFoundController,
     SignupController,
     LogsController,
-    AppController
+    AppController,
+    WorkerController
 };
 
 require __DIR__ . '/../vendor/autoload.php';

@@ -58,9 +58,9 @@ class UserRepository {
             $userFetchedRow = $stmt->fetch();
 
             $resUser = new User();
-            $resUser->id = $userFetchedRow["user_id"];
-            $resUser->username = $userFetchedRow["user_uid"];
-            $resUser->email = $userFetchedRow["user_email"];
+            $resUser->setId($userFetchedRow["user_id"]);
+            $resUser->setUsername($userFetchedRow["user_uid"]);
+            $resUser->setEmail($userFetchedRow["user_email"]);
 
             return $resUser;
         }

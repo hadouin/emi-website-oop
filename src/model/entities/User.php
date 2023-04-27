@@ -4,24 +4,24 @@ namespace Emi\model\entities;
 
 class User
 {
-    public string $id;
-    public string $username;
-    public string $email;
-    public Role $role;
+    private int $id;
+    private string $username;
+    private string $email;
+    private Role $role;
 
     /**
-     * @return string
+     * @return int
      */
-    public function getId(): string
+    public function getId(): int
     {
         return $this->id;
     }
 
     /**
-     * @param string $id
+     * @param int $id
      * @return User
      */
-    public function setId(string $id): self
+    public function setId(int $id): self
     {
         $this->id = $id;
 

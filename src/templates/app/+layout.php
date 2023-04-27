@@ -5,13 +5,11 @@ if(empty(session_id())) session_start();
  * @var $content
  */
 ?>
-
-<!DOCTYPE html>
 <html lang="fr" dir="ltr" data-theme="light">
 <head>
     <meta charset="utf-8">
     <title><?= $title ?? 'Emi App' ?></title>
-    <link rel="stylesheet" href="../../assets/css/app.css">
+    <link rel="stylesheet" href="/assets/css/app.css">
     <!--Favicons-->
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
@@ -63,7 +61,7 @@ if(empty(session_id())) session_start();
                 </li>
 
                 <li class="nav-link">
-                    <a href="#">
+                    <a href="/app/workers">
                         <div class="icon"><i data-feather="users"></i></div>
                         <span class="text nav-text">Workers</span>
                     </a>
@@ -127,8 +125,8 @@ if(empty(session_id())) session_start();
 
 </body>
 <!-- Minimal theme switcher -->
-<script src="../js/minimal-theme-switcher.js"></script>
-<script src="../js/app/theme-switch-sidebar.js"></script>
+<script src="/assets/js/minimal-theme-switcher.js"></script>
+<script src="/assets/js/app/theme-switch-sidebar.js"></script>
 <script>
     feather.replace()
 </script>

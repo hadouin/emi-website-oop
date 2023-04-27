@@ -20,9 +20,9 @@ class LoginController
         $user = (new UserRepository)->getUserMatchingPwd($uid, $password);
 
         session_start();
-        $_SESSION["userId"] = $user->id;
-        $_SESSION["userUid"] = $user->username;
-        $_SESSION["userEmail"] = $user->email;
+        $_SESSION["userId"] = $user->getId();
+        $_SESSION["userUid"] = $user->getUsername();
+        $_SESSION["userEmail"] = $user->getEmail();
 
         header('location: /');
     }

@@ -5,8 +5,6 @@ if(empty(session_id())) session_start();
  * @var $content
  */
 ?>
-
-<!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
     <meta charset="utf-8">
