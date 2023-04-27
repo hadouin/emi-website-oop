@@ -54,7 +54,7 @@ if(empty(session_id())) session_start();
 
             <ul class="menu-links">
                 <li class="nav-link">
-                    <a href="#">
+                    <a href="/app">
                         <div class="icon"><i data-feather="pie-chart"></i></div>
                         <span class="text nav-text">Dashboard</span>
                     </a>
