@@ -16,6 +16,9 @@
 .bloc {
     width: 33%;
     margin: 0px 30px;
+}
+
+.bloc p{
     color: white;
 }
 
@@ -24,13 +27,12 @@
 }
 
 .footer-list li{
-    list-style: none;
     text-decoration: none;
 }
 
 .footer-list a{
     text-decoration: none;
-    color: white;
+
 }
 
 .footer-list a:hover{
@@ -40,6 +42,6 @@
     padding-bottom: 12px;
 }
 
-.footer-contact p {
+.footer-contact p, .footer-condition p{
     color: white;
 }

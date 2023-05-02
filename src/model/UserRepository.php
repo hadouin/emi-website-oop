@@ -94,4 +94,26 @@ class UserRepository {
 
     }
 
+    public function setToken(string $token, string $email) : void {
+        $stmt = $this->database->getConnection()->prepare('UPDATE users SET token = ? WHERE users_email = ?');
+        if (!$stmt->execute(array($token, $email))) {
+            $stmt = null;
+            header("location: ../welcome?error=stmt-failed");
+            exit();
+        }
+
+        $stmt = null;
+    }
+
+    public function getEmailFromToken(string $token) {
+        $stmt = $this->database->getConnection()->prepare('SELECT users_email FROM users WHERE token = ?');
+        if (!$stmt->execute([$token])) {
+            $stmt = null;
+            header("location: ../welcome?error=stmt-failed");
+            exit();
+        }
+
+        return $stmt->fetchColumn();
+    }
+
 }

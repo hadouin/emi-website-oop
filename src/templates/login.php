@@ -38,6 +38,7 @@
                     <a href="/signup">S'inscrire</inscrire></a>
                 </p>
             </form>
+            <p><a href="/forgotPassword">Mot de passe oublié</a></p>
         </div>
         <div></div>
     </article>

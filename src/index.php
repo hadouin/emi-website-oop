@@ -16,6 +16,12 @@ $router->post('/signup', 'Signup#post');
 $router->get('/login', 'Login#get');
 $router->post('/login', 'Login#post');
 
+$router->get('/forgotPassword', 'ForgotPassword#get');
+$router->post('/forgotPassword', 'ForgotPassword#post');
+
+$router->get('/changePassword', 'ChangePassword#get');
+$router->post('/forgotPassword', 'ForgotPassword#post');
+
 $router->get('/logs', 'Logs#get');
 
 $router->get('/app', 'App#get');

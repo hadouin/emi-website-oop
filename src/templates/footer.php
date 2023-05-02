@@ -6,6 +6,15 @@
         <p>10 Rue de Vanves, 92130 Issy-les-Moulineaux</p>
     </div>
 
+    <div class="bloc footer-condition">
+        <h3>A propos</h3>
+        <p>Condition générale de ventes</p>
+        <p>Politique de confidentialité</p>
+        <p>données personnelle</p>
+        <p>cookies</p>
+        <p>Mentions légales</p>
+    </div>
+
     <div class="bloc footer-medias">
         <h3>Nos réseaux</h3>
         <ul class="medias footer-list">
@@ -28,5 +37,5 @@
 </div>
 
 <div class="copyright">
-    <p>&copy; 2023 EMI</p>
+    <p>&copy; COPYRIGHT 2023 EMI</p>
 </div>
