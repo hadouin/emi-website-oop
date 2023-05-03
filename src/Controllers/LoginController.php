@@ -1,5 +1,4 @@
 <?php
-
 namespace Emi\Controllers;
 
 use Emi\model\entities\User;

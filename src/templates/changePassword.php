@@ -1,13 +1,14 @@
 <?php use Emi\model\UserRepository;
+session_start();
 
 $title = "Emi - ForgotPassword" ?>
 <?php ob_start();
-session_start();
 ?>
 <?php if(isset($_GET['token']) && $_GET['token'] != ''){
     $user = new UserRepository;
     $email = $user->getEmailFromToken($_GET['token']);
     if($email) {
+        $_SESSION["email"] = $email;
         ?>
         <html>
         <main class="container">
@@ -18,7 +19,7 @@ session_start();
                     <input type="submit" value="Valider" name="pass_submit">
                 </form>
             </div>
-            <?php if(isset($error)) {echo $error;} ?>
+            <?php if(isset($_SESSION['error'])) {echo $_SESSION['error'];  unset($_SESSION['error']);} ?>
         </main>
         </html>
         <?php

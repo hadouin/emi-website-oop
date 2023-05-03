@@ -116,4 +116,16 @@ class UserRepository {
         return $stmt->fetchColumn();
     }
 
+    public function changePassword(string $email, string $newPassword) {
+        $stmt = $this->database->getConnection()->prepare('UPDATE users SET users_pwd = ?, token = NULL WHERE users_email = ?');
+        $hashedPwd = password_hash($newPassword, PASSWORD_DEFAULT);
+        if (!$stmt->execute([$hashedPwd, $email])) {
+            $stmt = null;
+            header("location: ../welcome?error=stmt-failed");
+            exit();
+        }
+
+        $stmt = null;
+    }
+
 }

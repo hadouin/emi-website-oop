@@ -25,24 +25,28 @@ class ForgotPasswordController
     public function post() : void
     {
         if(isset($_POST['recup_submit'], $_POST['recup_email'])) {
-            $token = uniqid();
-            $url = "";
+            if(!empty($_POST['recup_email'])) {
 
-            $message = "Bonjour, voici le lien pour la réinitialisation du mot de passe : $url";
-            $headers = 'content-Type : text/plain; charset="utf-8"'." ";
+                $recup_mail = htmlspecialchars($_POST['recup_email']);
+                $token = uniqid();
+                $url = "";
 
-            if(mail($_POST['recup_email'], "Forgot password", $message, $headers))
-            {
-                $this->userRepository->setToken($token, $_POST['recup_email']);
-                echo "Mail envoyé";
+                $message = "Bonjour, voici le lien pour la réinitialisation du mot de passe : $url";
+                $headers = 'content-Type : text/plain; charset="utf-8"'." ";
+
+                if(mail($recup_mail, "Forgot password", $message, $headers))
+                {
+                    $this->userRepository->setToken($token, $recup_mail);
+                    echo "Mail envoyé";
+                }
+
+                else {
+                    echo "ca marche pas";
+                }
+
+                $this->userRepository->setToken($token, $recup_mail);
+
             }
-
-            else {
-                echo "ca marche pas";
-            }
-
-            $this->userRepository->setToken($token, $_POST['recup_email']);
-
         }
     }
 }

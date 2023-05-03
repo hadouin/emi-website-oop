@@ -20,7 +20,7 @@ $router->get('/forgotPassword', 'ForgotPassword#get');
 $router->post('/forgotPassword', 'ForgotPassword#post');
 
 $router->get('/changePassword', 'ChangePassword#get');
-$router->post('/forgotPassword', 'ForgotPassword#post');
+$router->post('/changePassword', 'ChangePassword#post');
 
 $router->get('/logs', 'Logs#get');
 
