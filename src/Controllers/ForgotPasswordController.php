@@ -34,17 +34,10 @@ class ForgotPasswordController
                 $message = "Bonjour, voici le lien pour la réinitialisation du mot de passe : $url";
                 $headers = 'content-Type : text/plain; charset="utf-8"'." ";
 
-                if(mail($recup_mail, "Forgot password", $message, $headers))
-                {
-                    $this->userRepository->setToken($token, $recup_mail);
-                    echo "Mail envoyé";
-                }
-
-                else {
-                    echo "ca marche pas";
-                }
-
+                mail($recup_mail, "Forgot password", $message, $headers);
                 $this->userRepository->setToken($token, $recup_mail);
+                $_SESSION['error'] = "Mail envoyé à ". $recup_mail;
+                header("location: ../login");
 
             }
         }

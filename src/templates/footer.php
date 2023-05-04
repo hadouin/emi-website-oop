@@ -1,3 +1,35 @@
+<head>
+    <style>
+        .footer-list li{
+            text-decoration: none;
+            list-style: none;
+        }
+
+        .footer-list a{
+            text-decoration: none;
+            color: white;
+
+        }
+
+        .footer-list a:hover{
+            color: rgb(3, 3, 3);
+        }
+
+        .bloc {
+            width: 33%;
+            margin: 0px 30px;
+        }
+
+        .bloc p{
+            color: white;
+        }
+
+        .copyright {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
 <div class="footer-content">
     <div class="bloc footer-contact">
         <h3>Nous contacter</h3>
@@ -8,11 +40,13 @@
 
     <div class="bloc footer-condition">
         <h3>A propos</h3>
-        <p>Condition générale de ventes</p>
-        <p>Politique de confidentialité</p>
-        <p>données personnelle</p>
-        <p>cookies</p>
-        <p>Mentions légales</p>
+        <ul class="conditions footer-list">
+            <li><a>Condition générale de ventes</a></li>
+            <li><a>Politique de confidentialité</a></li>
+            <li><a>données personnelle</a></li>
+            <li><a>cookies</a></li>
+            <li><a>Mentions légales</a></li>
+        </ul>
     </div>
 
     <div class="bloc footer-medias">

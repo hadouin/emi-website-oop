@@ -40,6 +40,10 @@ textarea {
     resize: vertical;
 }
 
+ul li {
+    list-style: none;
+}
+
 button,
 a[role="button"] {
     --font-size: 0.825rem;
