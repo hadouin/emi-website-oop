@@ -38,7 +38,6 @@ class ForgotPasswordController
                 $this->userRepository->setToken($token, $recup_mail);
                 $_SESSION['error'] = "Mail envoyé à ". $recup_mail;
                 header("location: ../login");
-
             }
         }
     }

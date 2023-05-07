@@ -1,6 +1,7 @@
 <?php
 
 namespace Emi\Controllers;
+use PDO;
 
 class WelcomeController
 {
