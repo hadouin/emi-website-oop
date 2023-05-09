@@ -6,6 +6,7 @@ use Emi\Controllers\{
     LoginController,
     ForgotPasswordController,
     changePasswordController,
+    ForumController,
     NotFoundController,
     SignupController,
     LogsController,

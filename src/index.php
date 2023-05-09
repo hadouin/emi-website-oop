@@ -31,6 +31,8 @@ $router->get('/app/workers', 'Worker#showAll');
 $router->get('/app/workers/new', 'Worker#new');
 $router->post('/app/workers/new', 'Worker#post');
 
+$router->get('/Forum/forum', 'Forum#get');
+
 
 $router->get('/404', 'NotFound#show');
 

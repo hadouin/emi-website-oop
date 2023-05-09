@@ -95,7 +95,7 @@ class UserRepository {
     }
 
     public function setToken(string $token, string $email) : void {
-        $stmt = $this->database->getConnection()->prepare('UPDATE users SET token = ? WHERE users_email = ?');
+        $stmt = $this->database->getConnection()->prepare('UPDATE user SET token = ? WHERE user_email = ?');
         if (!$stmt->execute(array($token, $email))) {
             $stmt = null;
             header("location: ../welcome?error=stmt-failed");
@@ -106,7 +106,7 @@ class UserRepository {
     }
 
     public function getEmailFromToken(string $token) {
-        $stmt = $this->database->getConnection()->prepare('SELECT users_email FROM users WHERE token = ?');
+        $stmt = $this->database->getConnection()->prepare('SELECT user_email FROM user WHERE token = ?');
         if (!$stmt->execute([$token])) {
             $stmt = null;
             header("location: ../welcome?error=stmt-failed");
@@ -117,7 +117,7 @@ class UserRepository {
     }
 
     public function changePassword(string $email, string $newPassword) {
-        $stmt = $this->database->getConnection()->prepare('UPDATE users SET users_pwd = ?, token = NULL WHERE users_email = ?');
+        $stmt = $this->database->getConnection()->prepare('UPDATE user SET user_pwd = ?, token = NULL WHERE user_email = ?');
         $hashedPwd = password_hash($newPassword, PASSWORD_DEFAULT);
         if (!$stmt->execute([$hashedPwd, $email])) {
             $stmt = null;
