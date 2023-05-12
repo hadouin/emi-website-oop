@@ -17,6 +17,8 @@ class changePasswordController
 
     public function get(): void
     {
+
+        $email = $this->userRepository->getEmailFromToken($_GET['token']);
         require_once 'templates/changePassword.php';
     }
 
@@ -29,7 +31,7 @@ class changePasswordController
                 $new_pwd = htmlspecialchars($_POST['new_password']);
                 $this->userRepository->changePassword($_SESSION["email"], $new_pwd);
                 unset($_SESSION["email"]);
-                header("location: ../login");
+                header("location: /login?error=passwordChange");
             }
             else {
                 $_SESSION['error'] = "les deux champs doivent etre similaire";

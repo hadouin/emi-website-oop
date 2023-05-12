@@ -44,7 +44,7 @@ class ForgotPasswordController
                 require './PHPMailer-master/src/SMTP.php';
 
                 $email = new PHPMailer(true);
-                header("location: ../login");
+                header("location: /login?error=messageSend");
                 try {
                     $email->SMTPDebug = SMTP::DEBUG_SERVER;
                     $email->isSMTP();

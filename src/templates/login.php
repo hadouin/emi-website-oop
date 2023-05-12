@@ -21,7 +21,12 @@
                         echo "<mark>An account already uses this email try to login</mark>";
                     } else if ($_GET["error"] == "userNotFound") {
                         echo "<mark>User not found</mark>";
+                    } else if ($_GET["error"] == "messageSend") {
+                        echo "<mark>messsage sent</mark>";
+                    } else if ($_GET["error"] == "passwordChange") {
+                        echo "<mark>password changed</mark>";
                     }
+
                 }
                 ?>
                 <input type="text" name="username" placeholder="Login" aria-label="Login" autocomplete="nickname" required>

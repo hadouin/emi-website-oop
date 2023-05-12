@@ -1,12 +1,12 @@
 <?php use Emi\model\UserRepository;
 session_start();
-
+/**
+ * @var $email
+ */
 $title = "Emi - ForgotPassword" ?>
 <?php ob_start();
 ?>
 <?php if(isset($_GET['token']) && $_GET['token'] != ''){
-    $user = new UserRepository;
-    $email = $user->getEmailFromToken($_GET['token']);
     if($email) {
         $_SESSION["email"] = $email;
         ?>
