@@ -40,6 +40,7 @@ if(empty(session_id())) session_start();
         <li><a href='/'>Accueil</a></li>
         <li><a href='#faq'>FAQ</a></li>
         <li><a href='#contact'>Contact</a></li>
+        <li><a href='/Forum/forum'>Forum</a></li>
     </ul>
     <ul style="flex: 1; justify-content: end">
         <?php

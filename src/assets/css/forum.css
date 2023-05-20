@@ -1,0 +1,36 @@
+h1 {
+    text-align: center;
+}
+
+table,th,td{border:1px solid #cccccc}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+td {
+    font-size: 1.3em;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+a:link {
+    text-decoration: none;
+}
+
+.colone_titre a:hover {
+    color: #4A86E8;
+}
+a:hover {
+}
+
+a:visited {
+    color: black;
+}
