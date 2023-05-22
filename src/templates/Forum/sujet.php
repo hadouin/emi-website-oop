@@ -18,22 +18,22 @@ if(empty($cat_id)) {
 <body>
 <table class="table">
     <tr>
-        <th>ID</th>
         <th>Titre</th>
         <th>Date</th>
+        <th>Par</th>
     </tr>
     <?php
     foreach ($topics as $top) {
         ?>
         <tr>
-            <td c>
-                <?= $top['id']?>
-            </td>
             <td class="colone_titre">
-                <a href=""><?= $top['titre']?></a>
+                <a href="/Forum/topic?id=<?= $top['id']?>"><?= $top['titre']?></a>
             </td>
             <td>
                 <?= $top['date_creation']?>
+            </td>
+            <td>
+                <?= $top['pseudo']?>
             </td>
         </tr>
         <?php

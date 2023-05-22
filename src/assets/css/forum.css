@@ -12,7 +12,7 @@ table {
 th, td {
     padding: 15px;
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1em;
 }
 
 td {
@@ -27,8 +27,6 @@ a:link {
 
 .colone_titre a:hover {
     color: #4A86E8;
-}
-a:hover {
 }
 
 a:visited {

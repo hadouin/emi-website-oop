@@ -27,8 +27,8 @@ class ForumRepository
         return $stmt->fetchAll();
     }
 
-    public function getTopics($id_cat) {
-        $stmt = $this->database->getConnection()->prepare('SELECT * FROM topic WHERE id_forum = ? ORDER BY date_creation DESC');
+    public function getSujet($id_cat) {
+        $stmt = $this->database->getConnection()->prepare('SELECT T.*, U.user_uid as pseudo FROM topic T LEFT JOIN user U ON T.id_user = U.user_id WHERE T.id_forum = ? ORDER BY T.date_creation DESC');
         if (!$stmt->execute(array($id_cat))) {
             $stmt = null;
             header("location: ../Forum/forum?error=noTopicsFound");
@@ -38,8 +38,34 @@ class ForumRepository
         return $stmt->fetchAll();
     }
 
-    public function getComments() {
+    public function getOneTopic($id_topic) {
+        $stmt = $this->database->getConnection()->prepare('SELECT T.*, U.user_uid as pseudo FROM topic T LEFT JOIN user U ON T.id_user = U.user_id WHERE T.id = ?');
+        if (!$stmt->execute(array($id_topic))) {
+            $stmt = null;
+            header("location: ../Forum/forum?error=noTopicsFound");
+            exit();
+        }
 
+        return $stmt->fetch();
     }
 
+    public function getComments($id_topic) {
+        $stmt = $this->database->getConnection()->prepare('SELECT TC.*, U.user_uid as pseudo FROM topic_commentaire TC LEFT JOIN user U ON TC.id_user = U.user_id WHERE TC.id_topic = ?');
+        if (!$stmt->execute(array($id_topic))) {
+            $stmt = null;
+            header("location: ../Forum/forum?error=noTopicsFound");
+            exit();
+        }
+
+        return $stmt->fetchAll();
+    }
+
+    public function insertNewTopic($id_forum, $titre, $contenu, $date_creation, $id_user) {
+        $stmt = $this->database->getConnection()->prepare('INSERT INTO topic (id_forum, titre, contenu, date_creation, id_user) VALUES (?, ?, ?, ?, ?)');
+        if (!$stmt->execute(array($id_forum, $titre, $contenu, $date_creation, $id_user))) {
+            $stmt = null;
+            header("location: ../Forum/forum?error=noTopicsFound");
+            exit();
+        }
+    }
 }
