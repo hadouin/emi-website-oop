@@ -6,12 +6,37 @@
  */
 session_start();
 ?>
-    <head>
-        <link rel="stylesheet" href="../assets/css/forum.css">
-    </head>
     <html>
+    <head>
+        <link rel="stylesheet" href="../../assets/css/forum.css">
+        <style>
+            * {
+                font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            }
+
+            textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                margin-bottom: 10px;
+                font-size: 16px;
+            }
+
+            button {
+                background-color: #7289da;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+        </style>
+    </head>
     <body>
-    <h1>Titre <?= $chosenTopic['titre']?></h1>
+    <h1>Titre : <?= $chosenTopic['titre']?></h1>
 
     <div style="width: 65%; margin-left: auto; margin-right: auto; background: white; box-shadow: 0 5px 15px rgba(0, 0, 0, .15); padding: 5px 10px; border-radius: 10px">
         <h3>Contenu</h3>
@@ -22,6 +47,25 @@ session_start();
             <?= $chosenTopic['pseudo']?>
         </div>
     </div>
+    <?php if(isset($_SESSION['userId'])) {
+    ?>
+        <div style="width: 65%; margin-left: auto; margin-right: auto; background: white; box-shadow: 0 5px 15px rgba(0, 0, 0, .15);
+        padding: 5px 10px; border-radius: 10px; margin-top: 15px">
+        <h3>Fell free to comment !</h3>
+            <form method="post" action="/Forum/comment">
+                <div>
+                    <textarea name="comment" rows="4"></textarea>
+                </div>
+                <div>
+                    <textarea name="topicId" hidden="hidden"><?=$chosenTopic['id']?></textarea>
+                </div>
+            <button type="submit" name="create-comment">Comment</button>
+            </form>
+    </div>
+    <?php
+    }
+    ?>
+
     <div style="width: 65%; margin-left: auto; margin-right: auto; background: white; box-shadow: 0 5px 15px rgba(0, 0, 0, .15);
      padding: 5px 10px; border-radius: 10px; margin-top: 15px">
         <h3>Commentaires</h3>
@@ -49,6 +93,6 @@ session_start();
             }
             ?>
         </table>
-    </div
+    </div>
     </body>
     </html>

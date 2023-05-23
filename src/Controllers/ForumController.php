@@ -53,4 +53,16 @@ class ForumController
             header('location: ../Forum/sujet?id=' .$category);
         }
     }
+
+    public function Comment()
+    {
+        session_start();
+        if(isset($_POST['create-comment'])) {
+            $content = $_POST['comment'];
+            $id = $_POST['topicId'];
+            
+            // header('location: ../Forum/topic?id=' .$id);
+        }
+
+    }
 }

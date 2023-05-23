@@ -15,7 +15,7 @@
                     <input type="password" name="password-confirm" placeholder="Confirm password" aria-label="Confirm password" required>
                     <fieldset>
                         <label for="agree">
-                            <input type="checkbox" role="checkbox" id="agree" name="agree">
+                            <input type="checkbox" role="checkbox" id="agree" name="agree" required>
                             I agree to terms & conditions
                         </label>
                     </fieldset>

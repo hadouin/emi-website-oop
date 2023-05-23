@@ -5,9 +5,14 @@
  */
 session_start();
 ?>
+
+<html>
 <head>
-    <link rel="stylesheet" href="../assets/css/forum.css">
+    <link rel="stylesheet" href="../../assets/css/forum.css">
     <style>
+        * {
+            font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+        }
         .button {
             background-color: #4A86E8;
             color: white;
@@ -27,8 +32,6 @@ session_start();
             color: #4A86E8;
         }
     </style>
-</head>
-<html>
 <body>
 <h1>LE FORUM</h1>
 <?php if(isset($_SESSION["userId"])) {

@@ -13,9 +13,15 @@ if(empty($cat_id)) {
 ?>
 <head>
     <link rel="stylesheet" href="../assets/css/forum.css">
+    <style>
+        * {
+            font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+        }
+    </style>
 </head>
 <html>
 <body>
+<h1>Category <?=$cat_id?></h1>
 <table class="table">
     <tr>
         <th>Titre</th>

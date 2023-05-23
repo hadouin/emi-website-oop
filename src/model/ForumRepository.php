@@ -68,4 +68,8 @@ class ForumRepository
             exit();
         }
     }
+
+    public function insertComment() {
+
+    }
 }
