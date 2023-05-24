@@ -22,6 +22,7 @@ if(empty($cat_id)) {
 <html>
 <body>
 <h1>Category <?=$cat_id?></h1>
+<a href="/Forum/forum" class="button">Forum homepage</a>
 <table class="table">
     <tr>
         <th>Titre</th>

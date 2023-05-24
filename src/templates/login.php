@@ -10,8 +10,8 @@
             </hgroup>
             <form action="/login" method="post">
                 <?php
-                if (isset($_GET["error"])){
-                    if ($_GET["error"] == "emptyinput"){
+                if (isset($_GET["error"])) {
+                    if ($_GET["error"] == "emptyinput") {
                         echo "<mark>Please fill in all the form</mark>";
                     } else if ($_GET["error"] == "passwordnomatch") {
                         echo "<mark>Password don't match</mark>";
@@ -25,8 +25,9 @@
                         echo "<mark>messsage sent</mark>";
                     } else if ($_GET["error"] == "passwordChange") {
                         echo "<mark>password changed</mark>";
+                    } else if ($_GET["error"] == "emailNotFound") {
+                        echo "<mark>email not found</mark>";
                     }
-
                 }
                 ?>
                 <input type="text" name="username" placeholder="Login" aria-label="Login" autocomplete="nickname" required>

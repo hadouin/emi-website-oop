@@ -24,7 +24,7 @@ session_start();
                 font-size: 16px;
             }
 
-            button {
+            button, .button {
                 background-color: #7289da;
                 color: #fff;
                 padding: 10px 20px;
@@ -37,8 +37,8 @@ session_start();
     </head>
     <body>
     <h1>Titre : <?= $chosenTopic['titre']?></h1>
-
     <div style="width: 65%; margin-left: auto; margin-right: auto; background: white; box-shadow: 0 5px 15px rgba(0, 0, 0, .15); padding: 5px 10px; border-radius: 10px">
+        <a href="/Forum/sujet?id=<?=$chosenTopic['id_forum']?>" class="button">return to category <?=$chosenTopic['id_forum']?></a>
         <h3>Contenu</h3>
         <div style="font-size: 1.4em"><?= $chosenTopic['contenu']?> </div>
         <div style="color: #CCC; font-size: 10px; text-align: right">
@@ -54,7 +54,7 @@ session_start();
         <h3>Fell free to comment !</h3>
             <form method="post" action="/Forum/comment">
                 <div>
-                    <textarea name="comment" rows="4"></textarea>
+                    <textarea name="comment" rows="4" placeholder="Comment here"></textarea>
                 </div>
                 <div>
                     <textarea name="topicId" hidden="hidden"><?=$chosenTopic['id']?></textarea>

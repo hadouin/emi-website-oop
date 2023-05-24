@@ -1,6 +1,9 @@
 <?php $title = "Emi - Signup" ?>
 <?php ob_start(); ?>
     <!-- Main -->
+<head>
+    <script src="../assets/js/pswCheck.js"></script>
+</head>
     <main class="container">
         <article class="grid">
             <div>
@@ -8,11 +11,12 @@
                     <h1>Sign up</h1>
                     <h2>here you sign up</h2>
                 </hgroup>
-                <form action="/signup" method="post">
+                <form action="/signup" method="post" id="form">
                     <input type="text" name="uid" placeholder="username" aria-label="username" required>
                     <input type="email" name="email" placeholder="email@example.com" aria-label="email" required>
-                    <input type="password" name="password" placeholder="Password" aria-label="Password" required>
-                    <input type="password" name="password-confirm" placeholder="Confirm password" aria-label="Confirm password" required>
+                    <input type="password" id="psw" name="password" placeholder="Password" aria-label="Password" required>
+                    <input type="password" name="password-confirm" id="confirmPsw" placeholder="Confirm password" aria-label="Confirm password" required>
+                    <input type="number" name="code" placeholder="username" aria-label="username" required>
                     <fieldset>
                         <label for="agree">
                             <input type="checkbox" role="checkbox" id="agree" name="agree" required>

@@ -69,7 +69,12 @@ class ForumRepository
         }
     }
 
-    public function insertComment() {
-
+    public function insertComment($id_topic, $id_user, $text, $date_creation) {
+        $stmt = $this->database->getConnection()->prepare('INSERT INTO topic_commentaire (id_topic, id_user, text, date_creation) VALUES (?, ?, ?, ?)');
+        if (!$stmt->execute(array($id_topic, $id_user, $text, $date_creation))) {
+            $stmt = null;
+            header("location: ../Forum/forum?error=error");
+            exit();
+        }
     }
 }

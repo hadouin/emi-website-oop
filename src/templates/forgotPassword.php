@@ -9,7 +9,6 @@ session_start();
                 <input type="submit" value="Valider" name="recup_submit">
             </form>
         </div>
-        <?php if(isset($error)) {echo $error;} ?>
     </main>
     </html>
 <?php $content = ob_get_clean(); ?>

@@ -60,8 +60,10 @@ class ForumController
         if(isset($_POST['create-comment'])) {
             $content = $_POST['comment'];
             $id = $_POST['topicId'];
-            
-            // header('location: ../Forum/topic?id=' .$id);
+            $date_creation = date('Y-m-d H:i:s');
+
+            $this->forumRepository->insertComment($id, $_SESSION['userId'], $content, $date_creation);
+            header('location: ../Forum/topic?id=' .$id);
         }
 
     }
