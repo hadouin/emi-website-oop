@@ -9,6 +9,7 @@ $router = new Router($_GET['url']);
 
 $router->get('/', 'Welcome#show');
 $router->get('/welcome', 'Welcome#show');
+$router->post('/contact', 'Welcome#contact');
 
 $router->get('/signup', 'Signup#get');
 $router->post('/signup', 'Signup#post');

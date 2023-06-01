@@ -80,6 +80,18 @@ class UserRepository {
         $stmt = null;
     }
 
+    public function clearUsedCode($code)
+    {
+        $stmt = $this->database->getConnection()->prepare("DELETE FROM accessCode WHERE code = ?");
+        if (!$stmt->execute(array($code))) {
+            $stmt = null;
+            header("location: ../welcome?error=stmt-failed");
+            exit();
+        }
+
+        $stmt = null;
+    }
+
     public function checkUser(string $uid, string $email) : bool
     {
         $stmt = $this->database->getConnection()->prepare('SELECT user_uid FROM user WHERE user_uid = ? OR user_email = ?;');
@@ -92,6 +104,19 @@ class UserRepository {
 
         return $stmt->rowCount() > 0;
 
+    }
+
+    public function checkCode($code)
+    {
+        $stmt = $this->database->getConnection()->prepare('SELECT id FROM accessCode WHERE code = ?;');
+
+        if (!$stmt->execute(array($code))) {
+            $stmt = null;
+            header("location: ../welcome?error=stmt-failed");
+            exit();
+        }
+
+        return $stmt->rowCount() == 0;
     }
 
     public function checkUserFromEmail(string $email) : bool

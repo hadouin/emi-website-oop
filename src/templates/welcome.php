@@ -81,13 +81,13 @@ session_start();
         </details>
     </section>
     <section id="contact">
-        <form>
+        <form method="post" action="/contact">
             <label for="name">Nom</label>
             <input type="text" id="name" name="name" placeholder="Nom">
             <small>Entrez votre nom</small>
             <label for="text">Text</label>
             <textarea id="text" name="text"></textarea>
-            <button type="submit">Submit</button>
+            <button type="submit" name="submit">Submit</button>
         </form>
     </section>
 </main>
