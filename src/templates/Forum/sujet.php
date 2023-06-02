@@ -12,7 +12,9 @@ if(empty($cat_id)) {
 }
 ?>
 <head>
-    <link rel="stylesheet" href="../assets/css/forum.css">
+    <link rel="stylesheet" href="../../assets/css/forum.css">
+    <link rel="stylesheet" href="../../assets/css/pico.min.css">
+    <link rel="stylesheet" href="../../assets/css/custom.css">
     <style>
         * {
             font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -20,7 +22,7 @@ if(empty($cat_id)) {
     </style>
 </head>
 <html>
-<body>
+<body style="margin: 0">
 <h1>Category <?=$cat_id?></h1>
 <a href="/Forum/forum" class="button">Forum homepage</a>
 <table class="table">
@@ -48,6 +50,9 @@ if(empty($cat_id)) {
     ?>
 </table>
 </body>
+<footer style="background-color: #4A86E8; margin-top: 10px">
+    <?php include "footer.php";?>
+</footer>
 </html>
 
 

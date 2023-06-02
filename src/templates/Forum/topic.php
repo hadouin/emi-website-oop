@@ -9,6 +9,8 @@ session_start();
     <html>
     <head>
         <link rel="stylesheet" href="../../assets/css/forum.css">
+        <link rel="stylesheet" href="../../assets/css/pico.min.css">
+        <link rel="stylesheet" href="../../assets/css/custom.css">
         <style>
             * {
                 font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -95,4 +97,7 @@ session_start();
         </table>
     </div>
     </body>
+    <footer style="background-color: #4A86E8">
+        <?php include "footer.php";?>
+    </footer>
     </html>
