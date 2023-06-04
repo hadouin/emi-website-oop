@@ -6,7 +6,7 @@
  */
 session_start();
 ?>
-    <html>
+    <html data-theme="light">
     <head>
         <link rel="stylesheet" href="../../assets/css/forum.css">
         <link rel="stylesheet" href="../../assets/css/pico.min.css">
