@@ -30,12 +30,12 @@ if(empty(session_id())) session_start();
     <header>
         <div class="image-text">
                 <span class="image">
-                    <img src="logo.png" alt="">
+                    <img src="/assets/img/Hadouin-JISEP.png" alt="">
                 </span>
 
             <div class="text logo-text">
-                <span class="name">Codinglab</span>
-                <span class="profession">Web developer</span>
+                <span class="name">Emi</span>
+                <span class="profession">Hadouin LEROY</span>
             </div>
         </div>
 
@@ -93,7 +93,7 @@ if(empty(session_id())) session_start();
 
         <div class="bottom-content">
             <li class="">
-                <a href="#">
+                <a href="/includes/logout.inc.php">
                     <div class="icon">
                         <i data-feather="log-out"></i>
                     </div>

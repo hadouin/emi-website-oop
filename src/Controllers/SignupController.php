@@ -52,23 +52,23 @@ class SignupController
     public function signupUser(): void
     {
         if ($this->emptyInput()) {
-            header("location: ../welcome.php?error=emptyInput");
+            header("location: /signup?error=emptyInput");
             exit();
         }
         if ($this->invalidUid()) {
-            header("location: ../welcome.php?error=invalidUid");
+            header("location: /signup?error=invalidUid");
             exit();
         }
         if ($this->invalidEmail()) {
-            header("location: ../welcome.php?error=invalidEmail");
+            header("location: /signup?error=invalidEmail");
             exit();
         }
         if (!$this->passwordMatch()) {
-            header("location: ../welcome.php?error=passwordNoMatch");
+            header("location: /signup?error=passwordNoMatch");
             exit();
         }
         if ($this->uidTaken()) {
-            header("location: ../welcome.php?error=uidTaken");
+            header("location: /signup?error=uidTaken");
             exit();
         }
 

@@ -37,7 +37,9 @@ class WorkerController
 
             $this->workerRepository->setWorker($firstName, $lastName, $code);
 
+            $_POST = null;
             header('location: /app/workers');
+
         }
     }
 

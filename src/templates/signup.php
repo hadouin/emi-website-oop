@@ -26,6 +26,8 @@
                             echo "<mark>Please fill in all the form</mark>";
                         } else if ($_GET["error"] == "wrongLogin") {
                             echo "<mark>Wrong login or password</mark>";
+                        } else if ($_GET["error"] == "passwordNoMatch") {
+                            echo "<mark>Password don't match</mark>";
                         }
                     }
                     ?>
