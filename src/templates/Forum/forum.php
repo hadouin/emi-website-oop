@@ -34,36 +34,41 @@ session_start();
             color: #4A86E8;
         }
     </style>
-<body style="display: grid; grid-template-rows: auto 1fr auto;">
-<h1>LE FORUM</h1>
-<?php if(isset($_SESSION["userId"])) {
-    ?>
-<a href="/Forum/createTopic" class="button">Create new topic</a>
-<?php
-}
-?>
-<table class="table">
-    <tr>
-        <th>ID</th>
-        <th>Titre</th>
-    </tr>
-    <?php
-        foreach ($categories as $cat) {
+<body style="display: flex; flex-grow: 1; flex-direction: column">
+<div style="display: flex; flex-direction: column; flex-grow: 1">
+    <h1>LE FORUM</h1>
+    <div style="justify-content: left">
+        <a href="/Welcome" class="button">HOME</a>
+        <?php if(isset($_SESSION["userId"])) {
             ?>
-                <tr>
-                    <td>
-                        <?= $cat['id']?>
-                    </td>
-                    <td class="colone_titre">
-                        <a href="/Forum/sujet?id=<?= $cat['id']?>"><?= $cat['titre']?></a>
-                    </td>
-                </tr>
+        <a href="/Forum/createTopic" class="button">Create new topic</a>
         <?php
         }
-    ?>
-</table>
+        ?>
+    </div>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Titre</th>
+        </tr>
+        <?php
+            foreach ($categories as $cat) {
+                ?>
+                    <tr>
+                        <td>
+                            <?= $cat['id']?>
+                        </td>
+                        <td class="colone_titre">
+                            <a href="/Forum/sujet?id=<?= $cat['id']?>"><?= $cat['titre']?></a>
+                        </td>
+                    </tr>
+            <?php
+            }
+        ?>
+    </table>
+</div>
 </body>
-<footer style="background-color: #4A86E8">
+<footer style="background-color: #4A86E8; margin-top: 20px">
     <?php include "footer.php";?>
 </footer>
 </html>

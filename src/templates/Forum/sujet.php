@@ -22,7 +22,8 @@ if(empty($cat_id)) {
     </style>
 </head>
 <html>
-<body style="margin: 0">
+<body style="margin: 0; display: flex;flex-direction: column; flex-grow: 1">
+<div style="flex-grow: 1">
 <h1>Category <?=$cat_id?></h1>
 <a href="/Forum/forum" class="button">Forum homepage</a>
 <table class="table">
@@ -49,8 +50,9 @@ if(empty($cat_id)) {
     }
     ?>
 </table>
+</div>
 </body>
-<footer style="background-color: #4A86E8; margin-top: 10px">
+<footer style="background-color: #4A86E8; margin-top: 20px">
     <?php include "footer.php";?>
 </footer>
 </html>

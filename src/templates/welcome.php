@@ -1,5 +1,7 @@
 <?php $title = "Emi - Welcome" ?>
 <?php
+
+use Emi\model\entities\Role;
 ob_start();
 session_start();
 ?>
@@ -12,7 +14,7 @@ session_start();
         <p>
             <?php
             if (isset($_SESSION["userId"]) && isset($_SESSION["userUid"])) {
-                echo "<b>Logged in as " . $_SESSION["userUid"] . " of Id=" . $_SESSION["userId"] . "</b>";
+                echo "<b>Logged in as " . $_SESSION["userUid"] . " of role=" . $_SESSION["userRole"]->getRoleString() . "</b>";
             }
             ?>
         </p>

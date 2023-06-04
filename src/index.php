@@ -27,6 +27,10 @@ $router->get('/logs', 'Logs#get');
 
 $router->get('/app', 'App#get');
 
+$router->get('/app/adminSpace', 'AdminSpace#getAdminSpace');
+$router->get('/app/AdminSpace/newCode', 'AdminSpace#addNewUserCode');
+$router->get('/app/AdminSpace/supprimerCode', 'AdminSpace#deleteUserFromId');
+
 $router->get('/app/workers', 'Worker#showAll');
 
 $router->get('/app/workers/new', 'Worker#new');

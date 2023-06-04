@@ -7,9 +7,9 @@
 
 <html data-theme="light">
 <head>
-    <link rel="stylesheet" href="../../assets/css/forum.css">
     <link rel="stylesheet" href="../../assets/css/pico.min.css">
     <link rel="stylesheet" href="../../assets/css/custom.css">
+
     <style>
         * {
             font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -18,8 +18,7 @@
         .form-createTopic {
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
+            align-items: flex-start;
         }
 
         /* Styliser le formulaire */
@@ -82,16 +81,12 @@
             color: #4A86E8;
         }
 
-        header {
-
-        }
-
     </style>
 </head>
-<header>
+<body style="display: flex; flex-direction: column; flex-grow: 1">
+<div style="justify-content: left">
     <a href="/Forum/forum" class="button">Accueil</a>
-</header>
-<body>
+</div>
 <div class="form-createTopic">
 <form action="/Forum/createTopic" method="post">
     <div class="category">
@@ -118,7 +113,7 @@
 </form>
 </div>
 </body>
-<footer style="background-color: #4A86E8">
+<footer style="background-color: #4A86E8; margin-top: 20px">
     <?php include "footer.php";?>
 </footer>
 </html>

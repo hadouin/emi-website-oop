@@ -13,8 +13,8 @@
                 if (isset($_GET["error"])) {
                     if ($_GET["error"] == "emptyinput") {
                         echo "<mark>Please fill in all the form</mark>";
-                    } else if ($_GET["error"] == "passwordnomatch") {
-                        echo "<mark>Password don't match</mark>";
+                    } else if ($_GET["error"] == "wrongPassword") {
+                        echo "<mark>Wrong password</mark>";
                     } else if ($_GET["error"] == "invalidemail") {
                         echo "<mark>Invalid email</mark>";
                     } else if ($_GET["error"] == "emailtaken") {
