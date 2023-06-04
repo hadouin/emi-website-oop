@@ -2,6 +2,7 @@
 namespace Emi\model;
 
 use Emi\model\DatabaseConnection;
+use Emi\model\entities\Role;
 use Emi\model\entities\User;
 
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) . '/model/entities/User.php');
@@ -61,6 +62,11 @@ class UserRepository {
             $resUser->setId($userFetchedRow["user_id"]);
             $resUser->setUsername($userFetchedRow["user_uid"]);
             $resUser->setEmail($userFetchedRow["user_email"]);
+            $role = ($userFetchedRow["user_role"] === "admin") ? Role::ADMIN :
+                (($userFetchedRow["user_role"] === "manager") ? Role::MANAGER :
+                    (($userFetchedRow["user_role"] === "user") ? Role::USER :
+                null));
+            $resUser->setRole($role);
 
             return $resUser;
         }
@@ -72,6 +78,40 @@ class UserRepository {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         if (!$stmt->execute(array($uid, $email, $hashedPassword))) {
+            $stmt = null;
+            header("location: ../welcome?error=stmt-failed");
+            exit();
+        }
+
+        $stmt = null;
+    }
+
+    public function getAllUser() {
+        $stmt = $this->database->getConnection()->prepare("SELECT * FROM user");
+
+        if (!$stmt->execute()) {
+            $stmt = null;
+            header("location: ../welcome?error=stmt-failed");
+            exit();
+        }
+
+        return $stmt->fetchAll();
+    }
+
+    public function deleteUserFromId($id) {
+        $stmt = $this->database->getConnection()->prepare("DELETE FROM user WHERE user_id = ?");
+        if (!$stmt->execute(array($id))) {
+            $stmt = null;
+            header("location: ../welcome?error=stmt-failed");
+            exit();
+        }
+
+        $stmt = null;
+    }
+
+    public function addNewCode($code) {
+        $stmt = $this->database->getConnection()->prepare("INSERT INTO accessCode (code) VALUE (?)");
+        if (!$stmt->execute(array($code))) {
             $stmt = null;
             header("location: ../welcome?error=stmt-failed");
             exit();
@@ -166,5 +206,7 @@ class UserRepository {
 
         $stmt = null;
     }
+
+
 
 }

@@ -67,4 +67,12 @@ class ForumController
         }
 
     }
+
+    public function deleteSujet() {
+        $cat_id = (int) trim(htmlentities($_GET['catId']));
+        $id = (int) trim(htmlentities($_GET['Id']));
+        $this->forumRepository->deleteSubject($id);
+        $topics = $this->forumRepository->getSujet($cat_id);
+        header('location: /Forum/sujet?id=' .$cat_id);
+    }
 }

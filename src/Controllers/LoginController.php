@@ -22,6 +22,7 @@ class LoginController
         $_SESSION["userId"] = $user->getId();
         $_SESSION["userUid"] = $user->getUsername();
         $_SESSION["userEmail"] = $user->getEmail();
+        $_SESSION["userRole"] = $user->getRole();
 
         header('location: /');
     }

@@ -27,6 +27,10 @@ $router->get('/logs', 'Logs#get');
 
 $router->get('/app', 'App#get');
 
+$router->get('/app/adminSpace', 'AdminSpace#getAdminSpace');
+$router->get('/app/AdminSpace/newCode', 'AdminSpace#addNewUserCode');
+$router->get('/app/AdminSpace/supprimerCode', 'AdminSpace#deleteUserFromId');
+
 $router->get('/app/workers', 'Worker#showAll');
 
 $router->get('/app/workers/new', 'Worker#new');
@@ -38,6 +42,8 @@ $router->get('/Forum/topic', 'Forum#showTopic');
 $router->get('/Forum/createTopic', 'Forum#getCreateTopic');
 $router->post('/Forum/createTopic', 'Forum#CreateTopic');
 $router->post('/Forum/comment', 'Forum#Comment');
+$router->get('/Forum/supprimerSujet', 'Forum#deleteSujet');
+
 
 
 

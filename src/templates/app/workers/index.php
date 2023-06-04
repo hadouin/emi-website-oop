@@ -6,7 +6,7 @@
         <nav aria-label="breadcrumb">
             <ul style="margin-top: 0">
                 <li><a href="/app">Home</a></li>
-                <li>Workers</li>
+                <li>Admin</li>
             </ul>
         </nav>
         <article>

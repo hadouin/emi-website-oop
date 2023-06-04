@@ -11,7 +11,8 @@ use Emi\Controllers\{
     SignupController,
     LogsController,
     AppController,
-    WorkerController
+    WorkerController,
+    AdminSpaceController
 };
 
 require __DIR__ . '/../vendor/autoload.php';

@@ -11,6 +11,8 @@ session_start();
         <link rel="stylesheet" href="../../assets/css/forum.css">
         <link rel="stylesheet" href="../../assets/css/pico.min.css">
         <link rel="stylesheet" href="../../assets/css/custom.css">
+        <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
+
         <style>
             * {
                 font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -37,7 +39,7 @@ session_start();
             }
         </style>
     </head>
-    <body>
+    <body style="display: flex; flex-direction: column; flex-grow: 1">
     <h1>Titre : <?= $chosenTopic['titre']?></h1>
     <div style="width: 65%; margin-left: auto; margin-right: auto; background: white; box-shadow: 0 5px 15px rgba(0, 0, 0, .15); padding: 5px 10px; border-radius: 10px">
         <a href="/Forum/sujet?id=<?=$chosenTopic['id_forum']?>" class="button">return to category <?=$chosenTopic['id_forum']?></a>
@@ -97,7 +99,7 @@ session_start();
         </table>
     </div>
     </body>
-    <footer style="background-color: #4A86E8">
+    <footer style="background-color: #4A86E8; margin-top: 20px">
         <?php include "footer.php";?>
     </footer>
     </html>

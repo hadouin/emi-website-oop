@@ -77,4 +77,21 @@ class ForumRepository
             exit();
         }
     }
+
+    public function deleteSubject($id) {
+        $stmt = $this->database->getConnection()->prepare('DELETE FROM topic WHERE id = ?');
+        if (!$stmt->execute(array($id))) {
+            $stmt = null;
+            header("location: ../Forum/forum?error=error");
+            exit();
+        }
+
+        $stmt = $this->database->getConnection()->prepare('DELETE FROM topic_commentaire WHERE id_topic = ?');
+        if (!$stmt->execute(array($id))) {
+            $stmt = null;
+            header("location: ../Forum/forum?error=error");
+            exit();
+        }
+    }
+
 }

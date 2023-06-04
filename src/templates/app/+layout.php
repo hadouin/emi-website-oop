@@ -1,4 +1,5 @@
 <?php
+use Emi\model\entities\Role;
 if(empty(session_id())) session_start();
 /**
  * @var $title
@@ -80,13 +81,19 @@ if(empty(session_id())) session_start();
                         <span class="text nav-text">Settings</span>
                     </a>
                 </li>
-
+                <?php
+                if(isset($_SESSION['userRole'])) {
+                    if($_SESSION['userRole'] === Role::ADMIN) {?>
                 <li class="nav-link">
-                    <a href="#">
+                    <a href="/app/adminSpace">
                         <div class="icon"><i data-feather="settings"></i></div>
                         <span class="text nav-text">Admin emi</span>
                     </a>
                 </li>
+                <?php
+                    }
+                }
+                ?>
 
             </ul>
         </div>
@@ -131,4 +138,4 @@ if(empty(session_id())) session_start();
     feather.replace()
 </script>
 
-</html>
+</html>x
