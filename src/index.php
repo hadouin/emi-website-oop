@@ -42,6 +42,8 @@ $router->get('/Forum/topic', 'Forum#showTopic');
 $router->get('/Forum/createTopic', 'Forum#getCreateTopic');
 $router->post('/Forum/createTopic', 'Forum#CreateTopic');
 $router->post('/Forum/comment', 'Forum#Comment');
+$router->get('/Forum/supprimerSujet', 'Forum#deleteSujet');
+
 
 
 
