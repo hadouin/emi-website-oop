@@ -40,6 +40,7 @@ if(empty(session_id())) session_start();
         <li><a href='/'>Accueil</a></li>
         <li><a href='#faq'>FAQ</a></li>
         <li><a href='#contact'>Contact</a></li>
+        <li><a href='/Forum/forum'>Forum</a></li>
     </ul>
     <ul style="flex: 1; justify-content: end">
         <?php
@@ -63,7 +64,7 @@ if(empty(session_id())) session_start();
 </nav><!-- ./ Nav -->
 
 <!-- Minimal theme switcher -->
-<script src="../assets/js/minimal-theme-switcher.js"></script>
+<script src="/assets/js/minimal-theme-switcher.js"></script>
 
 <?= $content ?? '<p>No content</p>' ?>
 

@@ -10,8 +10,8 @@
             </hgroup>
             <form action="/login" method="post">
                 <?php
-                if (isset($_GET["error"])){
-                    if ($_GET["error"] == "emptyinput"){
+                if (isset($_GET["error"])) {
+                    if ($_GET["error"] == "emptyinput") {
                         echo "<mark>Please fill in all the form</mark>";
                     } else if ($_GET["error"] == "passwordnomatch") {
                         echo "<mark>Password don't match</mark>";
@@ -21,6 +21,12 @@
                         echo "<mark>An account already uses this email try to login</mark>";
                     } else if ($_GET["error"] == "userNotFound") {
                         echo "<mark>User not found</mark>";
+                    } else if ($_GET["error"] == "messageSend") {
+                        echo "<mark>messsage sent</mark>";
+                    } else if ($_GET["error"] == "passwordChange") {
+                        echo "<mark>password changed</mark>";
+                    } else if ($_GET["error"] == "emailNotFound") {
+                        echo "<mark>email not found</mark>";
                     }
                 }
                 ?>
@@ -38,6 +44,7 @@
                     <a href="/signup">S'inscrire</inscrire></a>
                 </p>
             </form>
+            <p><a href="/forgotPassword">Mot de passe oublié</a></p>
         </div>
         <div></div>
     </article>

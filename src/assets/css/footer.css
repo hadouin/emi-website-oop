@@ -16,21 +16,27 @@
 .bloc {
     width: 33%;
     margin: 0px 30px;
+}
+
+.bloc p{
     color: white;
 }
 
 .bloc h3 {
     margin-bottom: 25px;
+    color: #1f2d38;
 }
 
 .footer-list li{
-    list-style: none;
+    color: white;
     text-decoration: none;
+    list-style: none;
 }
 
 .footer-list a{
     text-decoration: none;
     color: white;
+
 }
 
 .footer-list a:hover{
@@ -40,6 +46,6 @@
     padding-bottom: 12px;
 }
 
-.footer-contact p {
+.footer-contact p, .footer-condition p{
     color: white;
 }

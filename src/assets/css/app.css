@@ -798,18 +798,20 @@ details summary {
 }
 
 [data-theme='light'] .current-theme-icon {
-    background-image: url("../icons/sun.svg");
+    background-image: url("/assets/icons/sun.svg");
+    object-fit: contain;
 }
 
 [data-theme='dark'] .current-theme-icon {
-    background-image: url("../icons/moon.svg");
+    background-image: url("/assets/icons/moon.svg");
+    object-fit: contain;
 }
 
 .light-theme-icon {
-    background-image: url("../icons/sun.svg");
+    background-image: url("/assets/icons/sun.svg");
 }
 .dark-theme-icon {
-    background-image: url("../icons/moon.svg");
+    background-image: url("/assets/icons/moon.svg");
 }
 
 /*===APP layout===*/

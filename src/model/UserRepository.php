@@ -80,6 +80,18 @@ class UserRepository {
         $stmt = null;
     }
 
+    public function clearUsedCode($code)
+    {
+        $stmt = $this->database->getConnection()->prepare("DELETE FROM accessCode WHERE code = ?");
+        if (!$stmt->execute(array($code))) {
+            $stmt = null;
+            header("location: ../welcome?error=stmt-failed");
+            exit();
+        }
+
+        $stmt = null;
+    }
+
     public function checkUser(string $uid, string $email) : bool
     {
         $stmt = $this->database->getConnection()->prepare('SELECT user_uid FROM user WHERE user_uid = ? OR user_email = ?;');
@@ -92,6 +104,67 @@ class UserRepository {
 
         return $stmt->rowCount() > 0;
 
+    }
+
+    public function checkCode($code)
+    {
+        $stmt = $this->database->getConnection()->prepare('SELECT id FROM accessCode WHERE code = ?;');
+
+        if (!$stmt->execute(array($code))) {
+            $stmt = null;
+            header("location: ../welcome?error=stmt-failed");
+            exit();
+        }
+
+        return $stmt->rowCount() == 0;
+    }
+
+    public function checkUserFromEmail(string $email) : bool
+    {
+        $stmt = $this->database->getConnection()->prepare('SELECT user_uid FROM user WHERE user_email = ?;');
+
+        if (!$stmt->execute(array($email))) {
+            $stmt = null;
+            header("location: ../welcome?error=stmt-failed");
+            exit();
+        }
+
+        return $stmt->rowCount() > 0;
+
+    }
+
+    public function setToken(string $token, string $email) : void {
+        $stmt = $this->database->getConnection()->prepare('UPDATE user SET token = ? WHERE user_email = ?');
+        if (!$stmt->execute(array($token, $email))) {
+            $stmt = null;
+            header("location: ../welcome?error=stmt-failed");
+            exit();
+        }
+
+        $stmt = null;
+    }
+
+    public function getEmailFromToken(string $token) {
+        $stmt = $this->database->getConnection()->prepare('SELECT user_email FROM user WHERE token = ?');
+        if (!$stmt->execute([$token])) {
+            $stmt = null;
+            header("location: ../welcome?error=stmt-failed");
+            exit();
+        }
+
+        return $stmt->fetchColumn();
+    }
+
+    public function changePassword(string $email, string $newPassword) {
+        $stmt = $this->database->getConnection()->prepare('UPDATE user SET user_pwd = ?, token = NULL WHERE user_email = ?');
+        $hashedPwd = password_hash($newPassword, PASSWORD_DEFAULT);
+        if (!$stmt->execute([$hashedPwd, $email])) {
+            $stmt = null;
+            header("location: ../welcome?error=stmt-failed");
+            exit();
+        }
+
+        $stmt = null;
     }
 
 }

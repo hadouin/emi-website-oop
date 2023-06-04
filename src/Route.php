@@ -4,6 +4,9 @@ namespace Emi;
 use Emi\Controllers\{
     WelcomeController,
     LoginController,
+    ForgotPasswordController,
+    changePasswordController,
+    ForumController,
     NotFoundController,
     SignupController,
     LogsController,

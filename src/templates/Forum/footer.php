@@ -1,5 +1,12 @@
 <head>
     <style>
+        .footer-content {
+            background-color: #4A86E8;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
         .footer-list li{
             text-decoration: none;
             list-style: none;
@@ -29,7 +36,6 @@
         }
     </style>
 </head>
-
 <div class="footer-content">
     <div class="bloc footer-contact">
         <h3>Nous contacter</h3>
@@ -69,7 +75,6 @@
         </ul>
     </div>
 </div>
-
-<div class="copyright">
-    <p>&copy; COPYRIGHT 2023 EMI</p>
+<div class="copyright" style="display: flex; justify-content: center">
+    <p style="margin-bottom: 0">&copy; COPYRIGHT 2023 EMI</p>
 </div>

@@ -12,6 +12,8 @@ class SignupController
     private string $password;
     private string $passwordConfirm;
 
+    private int $code;
+
     private UserRepository $userRepository;
 
     public function __construct()
@@ -32,12 +34,14 @@ class SignupController
             $email = $_POST["email"];
             $password = $_POST["password"];
             $passwordConfirm = $_POST["password-confirm"];
+            $code = $_POST["code"];
 
             // set data
             $this->uid = $uid;
             $this->email = $email;
             $this->password = $password;
             $this->passwordConfirm = $passwordConfirm;
+            $this->code = $code;
 
             $this->signupUser();
 
@@ -67,12 +71,19 @@ class SignupController
             header("location: /signup?error=passwordNoMatch");
             exit();
         }
+
         if ($this->uidTaken()) {
             header("location: /signup?error=uidTaken");
             exit();
         }
 
+        if($this->checkCode()) {
+            header("location: /signup?error=codeNotFound");
+            exit();
+        }
+
         $this->userRepository->setUser($this->uid, $this->email, $this->password);
+        $this->userRepository->clearUsedCode($this->code);
     }
 
     private function emptyInput(): bool
@@ -98,6 +109,11 @@ class SignupController
     private function uidTaken(): bool
     {
         return $this->userRepository->checkUser($this->uid, $this->email);
+    }
+
+    private function checkCode() : bool
+    {
+        return $this->userRepository->checkCode($this->code);
     }
 }
 
