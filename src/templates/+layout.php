@@ -64,7 +64,7 @@ if(empty(session_id())) session_start();
 </nav><!-- ./ Nav -->
 
 <!-- Minimal theme switcher -->
-<script src="../assets/js/minimal-theme-switcher.js"></script>
+<script src="/assets/js/minimal-theme-switcher.js"></script>
 
 <?= $content ?? '<p>No content</p>' ?>
 

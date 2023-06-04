@@ -72,8 +72,9 @@ const themeSwitcher = {
 
     // Apply scheme
     applyScheme() {
+        console.log("apllying theme")
         document
-            .querySelector("src")
+            .querySelector("html")
             .setAttribute(this.rootAttribute, this.scheme);
     },
 
