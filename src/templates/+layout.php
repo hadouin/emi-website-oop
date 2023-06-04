@@ -14,9 +14,9 @@ if(empty(session_id())) session_start();
     <link rel="stylesheet" href="../assets/css/custom.css">
 
     <!--Favicons-->
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/icons/favicon-16x16.png">
     <link rel="manifest" href="/assets/icons/site.webmanifest">
     <link rel="mask-icon" href="/assets/icons/safari-pinned-tab.svg" color="#5bbad5">
     <link rel="shortcut icon" href="/assets/icons/favicon.ico">
@@ -64,7 +64,7 @@ if(empty(session_id())) session_start();
 </nav><!-- ./ Nav -->
 
 <!-- Minimal theme switcher -->
-<script src="/assets/js/minimal-theme-switcher.js"></script>
+<script src="../assets/js/minimal-theme-switcher.js"></script>
 
 <?= $content ?? '<p>No content</p>' ?>
 

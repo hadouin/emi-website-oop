@@ -10,6 +10,7 @@ session_start();
     <link rel="stylesheet" href="../../assets/css/forum.css">
     <link rel="stylesheet" href="../../assets/css/pico.min.css">
     <link rel="stylesheet" href="../../assets/css/custom.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
 
     <style>
         * {
