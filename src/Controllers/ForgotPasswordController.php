@@ -9,6 +9,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
 
+
 require __DIR__ . '/../../vendor/autoload.php';
 
 class ForgotPasswordController
@@ -39,10 +40,6 @@ class ForgotPasswordController
 
                     $message = "Bonjour, voici le lien pour la réinitialisation du mot de passe : " .$url;
                     $headers = 'content-Type : text/plain; charset="utf-8"'." ";
-
-                    require './PHPMailer-master/src/Exception.php';
-                    require './PHPMailer-master/src/PHPMailer.php';
-                    require './PHPMailer-master/src/SMTP.php';
 
                     $email = new PHPMailer(true);
                     header("location: /login?error=messageSend");
