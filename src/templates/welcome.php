@@ -23,7 +23,7 @@ session_start();
             plus simple que jamais à utiliser sur le site.
         </p>
         <p>
-            <a href="/login" role="button">Get started</a>
+            <a href="/app" role="button">Get started</a>
         </p>
     </div>
 </header>
