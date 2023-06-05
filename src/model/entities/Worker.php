@@ -4,10 +4,10 @@ namespace Emi\model\entities;
 
 class Worker
 {
-    private int $id;
-    private string $firstName;
-    private string $lastName;
-    private string $code;
+    public int $id;
+    public string $firstName;
+    public string $lastName;
+    public string $code;
 
     /**
      * @return int

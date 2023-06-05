@@ -52,4 +52,26 @@ class WorkerRepository
         return $workers;
 
     }
+
+    public function search(string $query): array
+    {
+        $stmt = $this->database->getConnection()->prepare("SELECT * FROM worker WHERE worker_firstname LIKE ? OR worker_lastname LIKE ?");
+        $stmt->execute(array("%$query%", "%$query%"));
+
+        $workers = array();
+
+        // Fetch the results row by row
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $worker = new Worker();
+            $worker->setId($row['worker_id']);
+            $worker->setFirstName($row['worker_firstname']);
+            $worker->setLastName($row['worker_lastname']);
+            $worker->setCode($row['worker_code']);
+
+            // Add the worker to the array
+            $workers[] = $worker;
+        }
+
+        return $workers;
+    }
 }
