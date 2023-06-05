@@ -17,6 +17,7 @@ $router->post('/signup', 'Signup#post');
 $router->get('/login', 'Login#get');
 $router->post('/login', 'Login#post');
 
+$router->get('/CGU', 'Login#CGU');
 $router->get('/forgotPassword', 'ForgotPassword#get');
 $router->post('/forgotPassword', 'ForgotPassword#post');
 

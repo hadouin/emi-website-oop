@@ -43,4 +43,8 @@ class LoginController
         require_once 'templates/login.php';
     }
 
+    public function CGU() {
+        require_once 'templates/CGU.php';
+    }
+
 }
