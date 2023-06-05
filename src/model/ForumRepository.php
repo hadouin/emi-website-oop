@@ -94,4 +94,28 @@ class ForumRepository
         }
     }
 
+    public function searchSujet($id_cat, $keywords) {
+        $sql = "SELECT T.*, U.user_uid as pseudo FROM topic T LEFT JOIN user U ON T.id_user = U.user_id WHERE T.id_forum = ?";
+        $sql .=" AND ";
+        $i = 0;
+        foreach ($keywords as $word) {
+            if($i == 0) {
+                $sql. " WHERE ";
+            }
+            else {
+                $sql.= " OR ";
+            }
+            $sql.=" contenu LIKE '%$word%'";
+            $i++;
+        }
+        $stmt = $this->database->getConnection()->prepare($sql);
+        if (!$stmt->execute(array($id_cat))) {
+            $stmt = null;
+            header("location: ../Forum/forum?error=noTopicsFound");
+            exit();
+        }
+
+        return $stmt->fetchAll();
+    }
+
 }

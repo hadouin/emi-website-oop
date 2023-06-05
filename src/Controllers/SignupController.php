@@ -12,7 +12,7 @@ class SignupController
     private string $password;
     private string $passwordConfirm;
 
-    private int $code;
+    private string $code;
 
     private UserRepository $userRepository;
 

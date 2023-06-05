@@ -17,6 +17,7 @@ $router->post('/signup', 'Signup#post');
 $router->get('/login', 'Login#get');
 $router->post('/login', 'Login#post');
 
+$router->get('/CGU', 'Login#CGU');
 $router->get('/forgotPassword', 'ForgotPassword#get');
 $router->post('/forgotPassword', 'ForgotPassword#post');
 
@@ -38,6 +39,7 @@ $router->post('/app/workers/new', 'Worker#post');
 
 $router->get('/Forum/forum', 'Forum#get');
 $router->get('/Forum/sujet', 'Forum#getSujet');
+$router->get('/Forum/sujet/search', 'Forum#searchSujet');
 $router->get('/Forum/topic', 'Forum#showTopic');
 $router->get('/Forum/createTopic', 'Forum#getCreateTopic');
 $router->post('/Forum/createTopic', 'Forum#CreateTopic');

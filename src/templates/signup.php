@@ -35,7 +35,7 @@
                     <fieldset>
                         <label for="agree">
                             <input type="checkbox" role="checkbox" id="agree" name="agree" required>
-                            I agree to terms & conditions
+                            <a href="/CGU">I agree to terms & conditions</a>
                         </label>
                     </fieldset>
                     <button type="submit" name="submit" class="contrast">Sign up</button>

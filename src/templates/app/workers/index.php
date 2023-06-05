@@ -1,6 +1,7 @@
 <?php $title = "Emi - App" ?>
 <?php ob_start(); ?>
     <!-- Main -->
+
     <main>
         <h1 style="margin: 0">Workers</h1>
         <nav aria-label="breadcrumb">

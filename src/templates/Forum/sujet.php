@@ -40,6 +40,11 @@ if(empty($cat_id)) {
 <div style="flex-grow: 1">
 <h1>Category <?=$cat_id?></h1>
 <a href="/Forum/forum" class="button">Forum homepage</a>
+    <form method="get" action="/Forum/sujet/search">
+        <input type="text" name="q" placeholder="keyword" style="width: 25%">
+        <input type="hidden" value="<?= $cat_id?>" hidden="hidden" name="catId">
+        <input type="submit" value="Search" style="width: 10%">
+    </form>
 <table class="table">
     <tr>
         <th>Titre</th>

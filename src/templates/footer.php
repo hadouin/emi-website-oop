@@ -41,7 +41,7 @@
     <div class="bloc footer-condition">
         <h3>A propos</h3>
         <ul class="conditions footer-list">
-            <li><a>Condition générale de ventes</a></li>
+            <li><a href="/CGU">Condition générale de ventes</a></li>
             <li><a>Politique de confidentialité</a></li>
             <li><a>données personnelle</a></li>
             <li><a>cookies</a></li>
