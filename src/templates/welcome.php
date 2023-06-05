@@ -14,7 +14,7 @@ session_start();
         <p>
             <?php
             if (isset($_SESSION["userId"]) && isset($_SESSION["userUid"])) {
-                echo "<b>Logged in as " . $_SESSION["userUid"] . " of role=" . $_SESSION["userRole"]->getRoleString() . "</b>";
+                echo "<b>Logged in as " . $_SESSION["userUid"] . " of id=" . $_SESSION["userId"] . "</b>";
             }
             ?>
         </p>
@@ -24,9 +24,12 @@ session_start();
             notre solution de gilets connectés est aujourd'hui
             plus simple que jamais à utiliser sur le site.
         </p>
-        <p>
-            <a href="/app" role="button">Get started</a>
-        </p>
+        <?php if(isset($_SESSION["userId"])) {
+            echo "<p><a href='/app' role='button'>Get started</a></p>";
+            ?>
+        <?php
+        }
+        ?>
     </div>
 </header>
 <main class="container">

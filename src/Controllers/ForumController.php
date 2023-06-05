@@ -75,4 +75,12 @@ class ForumController
         $topics = $this->forumRepository->getSujet($cat_id);
         header('location: /Forum/sujet?id=' .$cat_id);
     }
+
+    public function searchSujet() {
+        $keyword = trim(htmlentities($_GET['q']));
+        $s = explode(" ", $keyword);
+        $cat_id = (int) trim(htmlentities($_GET['catId']));
+        $topics = $this->forumRepository->searchSujet($cat_id, $s);
+        require_once 'templates/Forum/sujet.php';
+    }
 }

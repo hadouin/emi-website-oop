@@ -1,6 +1,7 @@
 <?php $title = "Emi - App" ?>
 <?php ob_start(); ?>
     <!-- Main -->
+
     <main>
         <h1 style="margin: 0">Workers</h1>
         <nav aria-label="breadcrumb">
@@ -11,8 +12,7 @@
         </nav>
         <article>
             <figure>
-
-            <table role="grid">
+            <table role="grid" id="mytable">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -38,5 +38,12 @@
 
         <a href="/app/workers/new" role="button">+ New worker</a>
     </main><!-- ./ Main -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+<script>
+    $(document).ready(function (){
+        $('#mytable').DataTable();
+    })
+</script>
 <?php $content = ob_get_clean(); ?>
 <?php require_once('templates/app/+layout.php') ?>
