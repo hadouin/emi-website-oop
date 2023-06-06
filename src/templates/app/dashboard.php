@@ -13,22 +13,22 @@
                         <span>
                             <canvas id="myChart"></canvas>
                             <p style="width: 100%; text-align: center; font-size: xxx-large; font-weight: bold; margin-top: -6rem">15</p>
-                            <p style="width: 100%; text-align: center; font-size: large; margin-top: -4rem">ok depart</p>
+                            <p style="width: 100%; text-align: center; font-size: large; margin-top: -4rem">Capteur thermique</p>
                         </span>
                         <span>
                             <canvas id="myChart2"></canvas>
                             <p style="width: 100%; text-align: center; font-size: xxx-large; font-weight: bold; margin-top: -6rem">45</p>
-                            <p style="width: 100%; text-align: center; font-size: large; margin-top: -4rem">ok depart</p>
+                            <p style="width: 100%; text-align: center; font-size: large; margin-top: -4rem">Capteur d'humidité</p>
                         </span>
                         <span>
                             <canvas id="myChart3"></canvas>
                             <p style="width: 100%; text-align: center; font-size: xxx-large; font-weight: bold; margin-top: -6rem">75</p>
-                            <p style="width: 100%; text-align: center; font-size: large; margin-top: -4rem">ok depart</p>
+                            <p style="width: 100%; text-align: center; font-size: large; margin-top: -4rem">Capteur de C02</p>
                         </span>
                         <span>
                             <canvas id="myChart4"></canvas>
                             <p style="width: 100%; text-align: center; font-size: xxx-large; font-weight: bold; margin-top: -6rem">45</p>
-                            <p style="width: 100%; text-align: center; font-size: large; margin-top: -4rem">ok depart</p>
+                            <p style="width: 100%; text-align: center; font-size: large; margin-top: -4rem">Capteur de son</p>
                         </span>
                     </div>
                 </article>
