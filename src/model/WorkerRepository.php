@@ -55,8 +55,8 @@ class WorkerRepository
 
     public function search(string $query): array
     {
-        $stmt = $this->database->getConnection()->prepare("SELECT * FROM worker WHERE worker_firstname LIKE ? OR worker_lastname LIKE ?");
-        $stmt->execute(array("%$query%", "%$query%"));
+        $stmt = $this->database->getConnection()->prepare("SELECT * FROM worker WHERE worker_firstname LIKE ? OR worker_lastname LIKE ? OR worker_code LIKE ?");
+        $stmt->execute(array("%$query%", "%$query%", "%$query%"));
 
         $workers = array();
 
