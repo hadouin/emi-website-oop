@@ -4,14 +4,60 @@
     <main>
         <h1 style="margin-top: 0">Dashboard</h1>
         <div class="grid">
-            <div>
+            <div style="height: 300px">
                 <article>
-                    <canvas id="myChart"></canvas>
+                    <header style="font-weight: bold">
+                        Appareil numéro 1
+                    </header>
+                    <div style="display: flex; gap: 2rem; margin-bottom: 0">
+                        <span>
+                            <canvas id="myChart"></canvas>
+                            <p style="width: 100%; text-align: center; font-size: xxx-large; font-weight: bold; margin-top: -6rem">15</p>
+                            <p style="width: 100%; text-align: center; font-size: large; margin-top: -4rem">ok depart</p>
+                        </span>
+                        <span>
+                            <canvas id="myChart2"></canvas>
+                            <p style="width: 100%; text-align: center; font-size: xxx-large; font-weight: bold; margin-top: -6rem">45</p>
+                            <p style="width: 100%; text-align: center; font-size: large; margin-top: -4rem">ok depart</p>
+                        </span>
+                        <span>
+                            <canvas id="myChart3"></canvas>
+                            <p style="width: 100%; text-align: center; font-size: xxx-large; font-weight: bold; margin-top: -6rem">75</p>
+                            <p style="width: 100%; text-align: center; font-size: large; margin-top: -4rem">ok depart</p>
+                        </span>
+                        <span>
+                            <canvas id="myChart4"></canvas>
+                            <p style="width: 100%; text-align: center; font-size: xxx-large; font-weight: bold; margin-top: -6rem">45</p>
+                            <p style="width: 100%; text-align: center; font-size: large; margin-top: -4rem">ok depart</p>
+                        </span>
+                    </div>
                 </article>
-            </div>
-            <div>
                 <article>
-                    <canvas id="myOtherChart"></canvas>
+                    <header style="font-weight: bold">
+                        Device 2
+                    </header>
+                    <div style="display: flex; gap: 2rem; margin-bottom: 0">
+                        <span>
+                            <canvas id="myOtherChart"></canvas>
+                            <p style="width: 100%; text-align: center; font-size: xxx-large; font-weight: bold; margin-top: -6rem">45</p>
+                            <p style="width: 100%; text-align: center; font-size: large; margin-top: -4rem">ok depart</p>
+                        </span>
+                        <span>
+                            <canvas id="myOtherChart2"></canvas>
+                            <p style="width: 100%; text-align: center; font-size: xxx-large; font-weight: bold; margin-top: -6rem">45</p>
+                            <p style="width: 100%; text-align: center; font-size: large; margin-top: -4rem">ok depart</p>
+                        </span>
+                        <span>
+                            <canvas id="myOtherChart3"></canvas>
+                            <p style="width: 100%; text-align: center; font-size: xxx-large; font-weight: bold; margin-top: -6rem">45</p>
+                            <p style="width: 100%; text-align: center; font-size: large; margin-top: -4rem">ok depart</p>
+                        </span>
+                        <span>
+                            <canvas id="myOtherChart4"></canvas>
+                            <p style="width: 100%; text-align: center; font-size: xxx-large; font-weight: bold; margin-top: -6rem">45</p>
+                            <p style="width: 100%; text-align: center; font-size: large; margin-top: -4rem">ok depart</p>
+                        </span>
+                    </div>
                 </article>
             </div>
         </div>
@@ -19,66 +65,92 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script defer>
-        const ctx = document.getElementById('myChart');
-
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-
-        const data = {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+        // Chart data and options
+        var data = {
             datasets: [{
-                axis: 'y',
-                label: 'My First Dataset',
-                data: [65, 59, 80, 81, 56, 55, 40],
-                fill: false,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(255, 205, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(201, 203, 207, 0.2)'
-                ],
-                borderColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(255, 159, 64)',
-                    'rgb(255, 205, 86)',
-                    'rgb(75, 192, 192)',
-                    'rgb(54, 162, 235)',
-                    'rgb(153, 102, 255)',
-                    'rgb(201, 203, 207)'
-                ],
-                borderWidth: 1
+                data: [75, 25],
+                backgroundColor: ['rgba(54, 162, 235, 0.8)', "#ffffff22"],
+                borderWidth: 0
             }]
         };
 
-        const config = {
-            type: 'bar',
-            data,
-            options: {
-                indexAxis: 'y',
-            }
+        var data45 = {
+            datasets: [{
+                data: [45, 55],
+                backgroundColor: ['rgba(54, 162, 235, 0.8)', "#ffffff22"],
+                borderWidth: 0
+            }]
         };
-        const otherChart = document.getElementById('myOtherChart');
 
-        new Chart(otherChart, config)
+        var data15 = {
+            datasets: [{
+                data: [15, 85],
+                backgroundColor: ['rgba(54, 162, 235, 0.8)', "#ffffff22"],
+                borderWidth: 0
+            }]
+        };
+
+        var options = {
+            rotation: -90,
+            circumference: 180,
+            tooltips: {enabled: false},
+            legend: {display: false},
+            animation: {duration: 0},
+        };
+
+        // Create gauge chart
+        const ctx = document.getElementById('myChart');
+        const ctx2 = document.getElementById('myChart2');
+        const ctx3 = document.getElementById('myChart3');
+        const ctx4 = document.getElementById('myChart4');
+
+        var gaugeChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: data15,
+            options: options
+        });
+        var gaugeChart2 = new Chart(ctx2, {
+            type: 'doughnut',
+            data: data45,
+            options: options
+        });
+        var gaugeChart3 = new Chart(ctx3, {
+            type: 'doughnut',
+            data: data,
+            options: options
+        });
+        var gaugeChart4 = new Chart(ctx4, {
+            type: 'doughnut',
+            data: data,
+            options: options
+        });
+
+        // Chart data and options
+        const ctx5 = document.getElementById('myOtherChart');
+        const ctx6 = document.getElementById('myOtherChart2');
+        const ctx7 = document.getElementById('myOtherChart3');
+        const ctx8 = document.getElementById('myOtherChart4');
+
+        var gaugeChart5 = new Chart(ctx5, {
+            type: 'doughnut',
+            data: data,
+            options: options
+        });
+        var gaugeChart6 = new Chart(ctx6, {
+            type: 'doughnut',
+            data: data,
+            options: options
+        });
+        var gaugeChart7 = new Chart(ctx7, {
+            type: 'doughnut',
+            data: data,
+            options: options
+        });
+        var gaugeChart8 = new Chart(ctx8, {
+            type: 'doughnut',
+            data: data,
+            options: options
+        });
     </script>
 <?php $content = ob_get_clean(); ?>
 <?php require('+layout.php') ?>

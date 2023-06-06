@@ -68,12 +68,12 @@ if(empty(session_id())) session_start();
                     </a>
                 </li>
 
-                <li class="nav-link">
-                    <a href="#">
-                        <div class="icon"><i data-feather="box"></i></div>
-                        <span class="text nav-text">Devices</span>
-                    </a>
-                </li>
+<!--                <li class="nav-link">-->
+<!--                    <a href="#">-->
+<!--                        <div class="icon"><i data-feather="box"></i></div>-->
+<!--                        <span class="text nav-text">Devices</span>-->
+<!--                    </a>-->
+<!--                </li>-->
 
                 <li class="nav-link">
                     <a href="#">
