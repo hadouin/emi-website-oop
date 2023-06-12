@@ -12,50 +12,23 @@
                     <div style="display: flex; gap: 2rem; margin-bottom: 0">
                         <span>
                             <canvas id="myChart"></canvas>
-                            <p style="width: 100%; text-align: center; font-size: xxx-large; font-weight: bold; margin-top: -6rem">15</p>
-                            <p style="width: 100%; text-align: center; font-size: large; margin-top: -4rem">Capteur thermique</p>
+                            <p id="temp_value" style="width: 100%; text-align: center; font-size: xxx-large; font-weight: bold; margin-top: -6rem">15</p>
+                            <p style="width: 100%; text-align: center; font-size: large; margin-top: -4rem">Capteur de Température</p>
                         </span>
                         <span>
                             <canvas id="myChart2"></canvas>
-                            <p style="width: 100%; text-align: center; font-size: xxx-large; font-weight: bold; margin-top: -6rem">45</p>
+                            <p id="hum_value" style="width: 100%; text-align: center; font-size: xxx-large; font-weight: bold; margin-top: -6rem">45</p>
                             <p style="width: 100%; text-align: center; font-size: large; margin-top: -4rem">Capteur d'humidité</p>
                         </span>
                         <span>
                             <canvas id="myChart3"></canvas>
-                            <p style="width: 100%; text-align: center; font-size: xxx-large; font-weight: bold; margin-top: -6rem">75</p>
+                            <p id="c02_value" style="width: 100%; text-align: center; font-size: xxx-large; font-weight: bold; margin-top: -6rem">75</p>
                             <p style="width: 100%; text-align: center; font-size: large; margin-top: -4rem">Capteur de C02</p>
                         </span>
                         <span>
                             <canvas id="myChart4"></canvas>
-                            <p style="width: 100%; text-align: center; font-size: xxx-large; font-weight: bold; margin-top: -6rem">45</p>
+                            <p id="sound_value" style="width: 100%; text-align: center; font-size: xxx-large; font-weight: bold; margin-top: -6rem">45</p>
                             <p style="width: 100%; text-align: center; font-size: large; margin-top: -4rem">Capteur de son</p>
-                        </span>
-                    </div>
-                </article>
-                <article>
-                    <header style="font-weight: bold">
-                        Device 2
-                    </header>
-                    <div style="display: flex; gap: 2rem; margin-bottom: 0">
-                        <span>
-                            <canvas id="myOtherChart"></canvas>
-                            <p style="width: 100%; text-align: center; font-size: xxx-large; font-weight: bold; margin-top: -6rem">45</p>
-                            <p style="width: 100%; text-align: center; font-size: large; margin-top: -4rem">ok depart</p>
-                        </span>
-                        <span>
-                            <canvas id="myOtherChart2"></canvas>
-                            <p style="width: 100%; text-align: center; font-size: xxx-large; font-weight: bold; margin-top: -6rem">45</p>
-                            <p style="width: 100%; text-align: center; font-size: large; margin-top: -4rem">ok depart</p>
-                        </span>
-                        <span>
-                            <canvas id="myOtherChart3"></canvas>
-                            <p style="width: 100%; text-align: center; font-size: xxx-large; font-weight: bold; margin-top: -6rem">45</p>
-                            <p style="width: 100%; text-align: center; font-size: large; margin-top: -4rem">ok depart</p>
-                        </span>
-                        <span>
-                            <canvas id="myOtherChart4"></canvas>
-                            <p style="width: 100%; text-align: center; font-size: xxx-large; font-weight: bold; margin-top: -6rem">45</p>
-                            <p style="width: 100%; text-align: center; font-size: large; margin-top: -4rem">ok depart</p>
                         </span>
                     </div>
                 </article>
@@ -64,7 +37,7 @@
     </main><!-- ./ Main -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script defer>
+    <script>
         // Chart data and options
         var data = {
             datasets: [{
@@ -125,32 +98,107 @@
             options: options
         });
 
-        // Chart data and options
-        const ctx5 = document.getElementById('myOtherChart');
-        const ctx6 = document.getElementById('myOtherChart2');
-        const ctx7 = document.getElementById('myOtherChart3');
-        const ctx8 = document.getElementById('myOtherChart4');
+        // Update chart value
+        function updateChart(chart, value, max = 100) {
+            chart.data.datasets[0].data[0] = value;
+            chart.data.datasets[0].data[1] = max - value;
+            chart.update();
+        }
 
-        var gaugeChart5 = new Chart(ctx5, {
-            type: 'doughnut',
-            data: data,
-            options: options
-        });
-        var gaugeChart6 = new Chart(ctx6, {
-            type: 'doughnut',
-            data: data,
-            options: options
-        });
-        var gaugeChart7 = new Chart(ctx7, {
-            type: 'doughnut',
-            data: data,
-            options: options
-        });
-        var gaugeChart8 = new Chart(ctx8, {
-            type: 'doughnut',
-            data: data,
-            options: options
-        });
+        // Ajax to update chart value
+        const url = "http://projets-tomcat.isep.fr:8080/appService" + "?ACTION=GETLOG&TEAM=G10D";
+        const pattern = /(.{1})(.{4})(.{1})(.{1})(.{2})(.{4})(.{4})(.{2})(.{4})(.{2})(.{2})(.{2})(.{2})(.{2})/;
+        let offset = 0;
+
+        function updateCharts(dataArray) {
+            // update temp value by finding first trame with c = 3
+            const tempTrame = dataArray.find(trame => trame.c === '3');
+            if (tempTrame) {
+                const tempValue = tempTrame.v / 10;
+                updateChart(gaugeChart, tempValue, 40);
+                document.getElementById('temp_value').innerHTML = tempValue;
+            }
+
+            // update hum value by finding first trame with c = 4
+            const humTrame = dataArray.find(trame => trame.c === '9');
+            if (humTrame) {
+                const humValue = parseInt(humTrame.v, 16);
+                updateChart(gaugeChart2, humValue);
+                document.getElementById('hum_value').innerHTML = humValue;
+            }
+
+            // update c02 value by finding first trame with c = 5
+            const c02Trame = dataArray.find(trame => trame.c === '5');
+            if (c02Trame) {
+                const c02Value = c02Trame.v;
+                updateChart(gaugeChart3, c02Value);
+                document.getElementById('c02_value').innerHTML = c02Value;
+            }
+
+            // update sound value by finding first trame with c = 6
+            const soundTrame = dataArray.find(trame => trame.c === '6');
+            if (soundTrame) {
+                const soundValue = soundTrame.v;
+                updateChart(gaugeChart4, soundValue);
+                document.getElementById('sound_value').innerHTML = soundValue;
+            }
+        }
+
+        function fetchData() {
+            console.log('fetching data')
+            offset += 2;
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error fetching data from the URL');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    console.log(data);
+                    const dataTab = data.match(/.{1,33}/g);
+                    const dataArray = dataTab.map(trame => {
+                        const [_, t, o, r, c, n, v, a, x, year, month, day, hour, min, sec] = trame.match(pattern);
+                        return {
+                            t,
+                            o,
+                            r,
+                            c,
+                            n,
+                            v,
+                            a,
+                            x,
+                            year,
+                            month,
+                            day,
+                            hour,
+                            min,
+                            sec
+                        };
+                    });
+                    console.log(dataArray[0]);
+
+                    dataArray.sort((a, b) => {
+                        const dateA = new Date(`${a.year}-${a.month}-${a.day}T${a.hour}:${a.min}:${a.sec}`);
+                        const dateB = new Date(`${b.year}-${b.month}-${b.day}T${b.hour}:${b.min}:${b.sec}`);
+                        return dateB - dateA;
+                        });
+
+                    return dataArray;
+                })
+                .then(dataArray => {
+                    setInterval(() => {
+                        console.log(dataArray[0]);
+                        dataArray = dataArray.slice(offset);
+                        updateCharts(dataArray)
+                    }, 200);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+
+        fetchData();
     </script>
 <?php $content = ob_get_clean(); ?>
 <?php require('+layout.php') ?>
