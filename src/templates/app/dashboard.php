@@ -9,7 +9,7 @@
                     <header style="font-weight: bold">
                         Appareil numéro 1
                     </header>
-                    <div style="display: flex; gap: 2rem; margin-bottom: 0">
+                    <div style="display: flex; gap: 2rem; margin-bottom: 0; transition: all 0.2s ease-in-out">
                         <span>
                             <canvas id="myChart"></canvas>
                             <p id="temp_value" style="width: 100%; text-align: center; font-size: xxx-large; font-weight: bold; margin-top: -6rem">15</p>
@@ -114,21 +114,23 @@
             // update temp value by finding first trame with c = 3
             const tempTrame = dataArray.find(trame => trame.c === '3');
             if (tempTrame) {
+                console.log('temptrame', tempTrame)
                 const tempValue = tempTrame.v / 10;
                 updateChart(gaugeChart, tempValue, 40);
                 document.getElementById('temp_value').innerHTML = tempValue;
             }
 
             // update hum value by finding first trame with c = 4
-            const humTrame = dataArray.find(trame => trame.c === '9');
+            const humTrame = dataArray.find(trame => trame.c === '4');
             if (humTrame) {
-                const humValue = parseInt(humTrame.v, 16);
+                console.log('humtrame', humTrame)
+                const humValue = humTrame.v / 10;
                 updateChart(gaugeChart2, humValue);
-                document.getElementById('hum_value').innerHTML = humValue;
+                document.getElementById('hum_value').innerHTML = humValue + '%';
             }
 
             // update c02 value by finding first trame with c = 5
-            const c02Trame = dataArray.find(trame => trame.c === '5');
+            const c02Trame = dataArray.find(trame => trame.c === '9');
             if (c02Trame) {
                 const c02Value = c02Trame.v;
                 updateChart(gaugeChart3, c02Value);
@@ -187,18 +189,13 @@
                     return dataArray;
                 })
                 .then(dataArray => {
-                    setInterval(() => {
-                        console.log(dataArray[0]);
-                        dataArray = dataArray.slice(offset);
-                        updateCharts(dataArray)
-                    }, 200);
+                    updateCharts(dataArray)
                 })
                 .catch(error => {
                     console.error(error);
                 });
         }
-
-        fetchData();
+        setInterval(fetchData, 500);
     </script>
 <?php $content = ob_get_clean(); ?>
 <?php require('+layout.php') ?>
