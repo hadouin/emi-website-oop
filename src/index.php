@@ -47,6 +47,8 @@ $router->post('/Forum/comment', 'Forum#Comment');
 $router->get('/Forum/supprimerSujet', 'Forum#deleteSujet');
 
 $router->get('/api/worker/search', 'Worker#searchAjax');
+$router->get('/api/appService', 'Integration#appService');
+$router->get('/api/test', 'Integration#test');
 
 
 $router->get('/404', 'NotFound#show');
