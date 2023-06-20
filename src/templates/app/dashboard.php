@@ -6,8 +6,19 @@
         <div class="grid">
             <div style="height: 300px">
                 <article>
-                    <header style="font-weight: bold">
-                        Appareil numéro 1
+                    <header style="font-weight: bold; margin-bottom: 0; display: flex; justify-content: space-between">
+                        Appareil G10D
+                        <div style="display: flex; align-items: center; margin-right: 2rem">
+                            <a href="#" onclick="sendLedCommand('G10D', 'red')" role="button" style="background-color: tomato; border-color: tomato">RED</a>
+                            <a href="#" onclick="sendLedCommand('G10D', 'green')" role="button" style="margin: 0 1rem; background-color: mediumseagreen; border-color: mediumseagreen">GREEN</a>
+                            <a href="#" onclick="sendLedCommand('G10D', 'blue')" role="button" style="margin-right: 1rem">BLUE</a>
+                            <a href="#" onclick="sendLedCommand('G10D', 'off')" role="button" class="secondary" style="margin-right: 2rem">OFF</a>
+                            <form style="display: flex; align-items: center; margin-bottom: 0" onsubmit="onSubmitOLEDString(event, 'G10D')">
+                                <!-- Pattern of 4 chars-->
+                                <input id="oled_string" pattern="[a-zA-Z0-9]{4}" type="text" style="margin-bottom: 0; border-top-right-radius: 0; border-bottom-right-radius: 0">
+                                <input type="submit" style="margin-bottom: 0; border-top-left-radius: 0; border-bottom-left-radius: 0">
+                            </form>
+                        </div>
                     </header>
                     <div style="display: flex; gap: 2rem; margin-bottom: 0; transition: all 0.2s ease-in-out">
                         <span>
@@ -38,6 +49,47 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
+        function sendCommand(team, trame) {
+            const url = "http://projets-tomcat.isep.fr:8080/appService" + "?ACTION=COMMAND&TEAM=" + team + "&TRAME=" + trame;
+            fetch(url)
+                .then(response => response.text())
+                .then(data => console.log(data));
+        }
+
+        function sendLedCommand(team, color) {
+            let value;
+            switch (color) {
+                case "red":
+                    value = "1001";
+                    break;
+                case "green":
+                    value = "1002";
+                    break;
+                case "blue":
+                    value = "1003";
+                    break;
+                case "off":
+                    value = "1000";
+                    break;
+                default:
+                    value = "1000";
+                    break;
+            }
+            const trame = "1" + team + "2" + "1" + "01" + value + "00";
+            console.log("Sending LED command: " + trame + " to team " + team + "...")
+            sendCommand(team, trame);
+        }
+
+        function onSubmitOLEDString(event, team) {
+            event.preventDefault();
+            const inputValue = event.target.elements.oled_string.value;
+            event.target.elements.oled_string.value = "";
+            const truncatedValue = inputValue.substring(0, 4);
+            const trame = "1" + team + "2" + "2"+ "01" + truncatedValue + "00";
+            console.log("Sending OLED command: " + trame + " to team " + team + "...")
+            sendCommand(team, trame);
+        }
+
         // Chart data and options
         var data = {
             datasets: [{
@@ -114,7 +166,6 @@
             // update temp value by finding first trame with c = 3
             const tempTrame = dataArray.find(trame => trame.c === '3');
             if (tempTrame) {
-                console.log('temptrame', tempTrame)
                 const tempValue = tempTrame.v / 10;
                 updateChart(gaugeChart, tempValue, 40);
                 document.getElementById('temp_value').innerHTML = tempValue;
@@ -123,7 +174,6 @@
             // update hum value by finding first trame with c = 4
             const humTrame = dataArray.find(trame => trame.c === '4');
             if (humTrame) {
-                console.log('humtrame', humTrame)
                 const humValue = humTrame.v / 10;
                 updateChart(gaugeChart2, humValue);
                 document.getElementById('hum_value').innerHTML = humValue + '%';
@@ -157,7 +207,6 @@
                     return response.text();
                 })
                 .then(data => {
-                    console.log(data);
                     const dataTab = data.match(/.{1,33}/g);
                     const dataArray = dataTab.map(trame => {
                         const [_, t, o, r, c, n, v, a, x, year, month, day, hour, min, sec] = trame.match(pattern);
@@ -178,7 +227,6 @@
                             sec
                         };
                     });
-                    console.log(dataArray[0]);
 
                     dataArray.sort((a, b) => {
                         const dateA = new Date(`${a.year}-${a.month}-${a.day}T${a.hour}:${a.min}:${a.sec}`);
